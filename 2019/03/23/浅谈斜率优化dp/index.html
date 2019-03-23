@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019 | _____hzf_____</title>
+  <title>浅谈斜率优化dp | _____hzf_____</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="_____hzf_____">
-<meta property="og:url" content="http://yoursite.com/archives/2019/index.html">
+  <meta name="description" content="Ⅰ、前置知识$y=kx+b$$k$叫斜率，$b$叫截距$(x_1,y_1)$$(x_2,y_2)$两点连成的直线的斜率$k=\frac{y1-y2}{x1-x2}$ Ⅱ、抛出问题">
+<meta name="keywords" content="算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浅谈斜率优化dp">
+<meta property="og:url" content="http://yoursite.com/2019/03/23/浅谈斜率优化dp/index.html">
 <meta property="og:site_name" content="_____hzf_____">
+<meta property="og:description" content="Ⅰ、前置知识$y=kx+b$$k$叫斜率，$b$叫截距$(x_1,y_1)$$(x_2,y_2)$两点连成的直线的斜率$k=\frac{y1-y2}{x1-x2}$ Ⅱ、抛出问题">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-03-23T10:55:03.571Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="_____hzf_____">
+<meta name="twitter:title" content="浅谈斜率优化dp">
+<meta name="twitter:description" content="Ⅰ、前置知识$y=kx+b$$k$叫斜率，$b$叫截距$(x_1,y_1)$$(x_2,y_2)$两点连成的直线的斜率$k=\frac{y1-y2}{x1-x2}$ Ⅱ、抛出问题">
   
     <link rel="alternative" href="/atom.xml" title="_____hzf_____" type="application/atom+xml">
   
@@ -154,36 +159,91 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-浅谈斜率优化dp" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/23/浅谈斜率优化dp/" class="archive-article-date">
-  	<time datetime="2019-03-22T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-23</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/23/浅谈斜率优化dp/">浅谈斜率优化dp</a>
+    <h1 class="article-title" itemprop="name">
+      浅谈斜率优化dp
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/03/23/浅谈斜率优化dp/" class="archive-article-date">
+  	<time datetime="2019-03-22T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Ⅰ、前置知识"><a href="#Ⅰ、前置知识" class="headerlink" title="Ⅰ、前置知识"></a><strong>Ⅰ、前置知识</strong></h1><p>$y=kx+b$<br>$k$叫斜率，$b$叫截距<br>$(x_1,y_1)$$(x_2,y_2)$两点连成的直线的斜率$k=\frac{y1-y2}{x1-x2}$</p>
+<h1 id="Ⅱ、抛出问题"><a href="#Ⅱ、抛出问题" class="headerlink" title="Ⅱ、抛出问题"></a><strong>Ⅱ、抛出问题</strong></h1><a id="more"></a>
+<p>洛谷板子</p>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a><strong>题目描述</strong></h2><p>$n$个任务排成一个序列在一台机器上等待完成（顺序不得改变），这$n$个任务被分成若干批，每批包含相邻的若干任务。从时刻$0$开始，这些任务被分批加工，第$i$个任务单独完成所需的时间是$T_i$。在每批任务开始前，机器需要启动时间$S$，而完成这批任务所需的时间是各个任务需要时间的总和（同一批任务将在同一时刻完成）。每个任务的费用是它的完成时刻乘以一个费用系数$F_i$。请确定一个分组方案，使得总费用最小。<br>例如：$S=1$；$T={1,3,4,2,1}$；$F={3,2,3,3,4}$。如果分组方案是${1,2}$、${3}$、${4,5}$，则完成时间分别为${5,5,10,14,14}$，费用$C={15,10,30,42,56}$，总费用就是$153$。</p>
+<h3 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a><strong>输入输出格式</strong></h3><h4 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a><strong>输入格式：</strong></h4><p>第一行是$n(1\leq n\leq5000)$。<br>第二行是$S(0\leq S\leq50)$。<br>下面$n$行每行有一对数，分别为$T_i$和$F_i$，均为不大于$100$的正整数，表示第$i$个任务单独完成所需的时间是$T_i$及其费用系数$F_i$。</p>
+<h4 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a><strong>输出格式：</strong></h4><p>一个数，最小的总费用。</p>
+<h3 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a><strong>输入输出样例</strong></h3><h4 id="输入样例-1："><a href="#输入样例-1：" class="headerlink" title="输入样例#1："></a><strong>输入样例#1：</strong></h4><p>5<br>1<br>1 3<br>3 2<br>4 3<br>2 3<br>1 4</p>
+<h4 id="输出样例-1："><a href="#输出样例-1：" class="headerlink" title="输出样例#1："></a><strong>输出样例#1：</strong></h4><p>153</p>
+<h1 id="Ⅲ、分析问题"><a href="#Ⅲ、分析问题" class="headerlink" title="Ⅲ、分析问题"></a><strong>Ⅲ、分析问题</strong></h1><p>首先这题$O(n^2)$可以艹过<br>但是$O(n^2)$过了这题讲斜率优化毫无意义QAQ<br>所以请自动将数据范围改成$(1\leq n\leq500000)$</p>
+<hr>
+<p>先来看一眼普通$dp$$O(n^2)$怎么写<br>设<br>$f[i]$表示处理到第$i$个任务，前$i$个的最小费用<br>$t_i$表示时间的前缀和<br>$c_i$表示费用的前缀和<br>考虑从$j$转移到$i$，表示$j+1$到$i$打包到一批<br>则状态转移方程为</p>
+<script type="math/tex; mode=display">f[i]=\min_{j=1}^{i}\{f[j]+s\times(c_n-c_j)+t_i\times(c_i-c_j)\}</script><p>由于之前哪些任务被分成一批不好处理，所以可以直接加上$s\times(c_n-c_j)$当作对后续状态的处理<br>然后推式子<br>将$j$看作一个变量，然后去掉$\min$，得到</p>
+<script type="math/tex; mode=display">f[i]=f[j]+s\times(c_n-c_j)+t_i\times(c_i-c_j)</script><p>拆括号</p>
+<script type="math/tex; mode=display">f[i]=f[j]+s\times c_n-s\times c_j+t_i\times c_i-t_i\times c_j</script><p>移项</p>
+<script type="math/tex; mode=display">f[i]-s\times c_n+s\times c_j-t_i\times c_i+t_i\times c_j=f[j]</script><script type="math/tex; mode=display">f[j]=f[i]-s\times c_n+s\times c_j-t_i\times c_i+t_i\times c_j</script><p>提取公因式</p>
+<script type="math/tex; mode=display">f[j]=c_j\times(s+t_i)+f[i]-s\times c_n+-t_i\times c_i</script><p>此时式子推成这样<br>再看一眼前置知识<br>$y=kx+b?$<br>此时我们的式子就像一条直线解析式！</p>
+<script type="math/tex; mode=display">x=c_j,y=f[j],k=s+t_i,b=f[i]-s\times c_n+-t_i\times c_i</script><p>我们想要最小化$f[i]$，就是最小化$b$<br>而我们此时要做的，就是用一条已知斜率的直线，利用已有的坐标，找到一个最小的$b$<br>如图，现在处理到$i$，则共有$i-1$个坐标为$(z_j,f[j])(1\leq j<a href="i)$的点
+如图所示
+![](https://i.loli.net/2019/02/23/5c70fd87c5674.png)
+右下角为当前处理的斜率为$s+t_i$的直线，我们要将它向上平移，直到和上方$i-1$个点中的一个相交
+显然要找的点$j$（也叫决策点）一定在图形的凸包上
+又很显然，决策点一定在下凸壳上，因为下凸壳上的点显然比上凸壳更优
+又很显然，决策点一定在下凸壳的右半侧，因为$k$（即$s+t_i$）一定大于$0$
+叕很显然找到决策点之后是这样的
+![](https://i.loli.net/2019/02/23/5c70fe42e4712.png)
+如何找到决策点？
+观察可以知道，凸包上的直线的斜率具有单调性
+二分！
+每次二分一个点，$check$这个点左侧的直线的斜率是否小于$s+t_i$，右侧的斜率是否大于$s+t_i$，如果是就证明找到了决策点
+手玩一下更好理解
+找到决策点之后，很明显，决策点左边所有的直线的截距都要大于$s+t_i$，所以左边的所有点都没有当前点优
+于是拿单调队列存一下凸包是上的点，如果没有当前直线优则踢掉
+找到决策点后，相当于找到了$j$，更新$f[i]$
+更新完$f[i]$后，为了方便后续的查找，将$(c_i,f[i])$插入凸包，并且维护一下凸包的单调性
+最后输出$f[n]$即可
+代码：
+&lt;!--￼0--">i)$的点
+如图所示
+![](https://i.loli.net/2019/02/23/5c70fd87c5674.png)
+右下角为当前处理的斜率为$s+t_i$的直线，我们要将它向上平移，直到和上方$i-1$个点中的一个相交
+显然要找的点$j$（也叫决策点）一定在图形的凸包上
+又很显然，决策点一定在下凸壳上，因为下凸壳上的点显然比上凸壳更优
+又很显然，决策点一定在下凸壳的右半侧，因为$k$（即$s+t_i$）一定大于$0$
+叕很显然找到决策点之后是这样的
+![](https://i.loli.net/2019/02/23/5c70fe42e4712.png)
+如何找到决策点？
+观察可以知道，凸包上的直线的斜率具有单调性
+二分！
+每次二分一个点，$check$这个点左侧的直线的斜率是否小于$s+t_i$，右侧的斜率是否大于$s+t_i$，如果是就证明找到了决策点
+手玩一下更好理解
+找到决策点之后，很明显，决策点左边所有的直线的截距都要大于$s+t_i$，所以左边的所有点都没有当前点优
+于是拿单调队列存一下凸包是上的点，如果没有当前直线优则踢掉
+找到决策点后，相当于找到了$j$，更新$f[i]$
+更新完$f[i]$后，为了方便后续的查找，将$(c_i,f[i])$插入凸包，并且维护一下凸包的单调性
+最后输出$f[n]$即可
+代码：
+&lt;!--￼0--</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -195,175 +255,119 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/23/浅谈斜率优化dp/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/23/洛谷P5074 Eat the Trees 题解/" class="archive-article-date">
-  	<time datetime="2019-03-22T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-23</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/03/23/洛谷P5074 Eat the Trees 题解/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">洛谷P5074 Eat the Trees 题解</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/23/洛谷P5074 Eat the Trees 题解/">洛谷P5074 Eat the Trees 题解</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Ⅰ、前置知识"><span class="toc-number">1.</span> <span class="toc-text">Ⅰ、前置知识</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Ⅱ、抛出问题"><span class="toc-number">2.</span> <span class="toc-text">Ⅱ、抛出问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#题目描述"><span class="toc-number">2.1.</span> <span class="toc-text">题目描述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#输入输出格式"><span class="toc-number">2.1.1.</span> <span class="toc-text">输入输出格式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#输入格式："><span class="toc-number">2.1.1.1.</span> <span class="toc-text">输入格式：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#输出格式："><span class="toc-number">2.1.1.2.</span> <span class="toc-text">输出格式：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#输入输出样例"><span class="toc-number">2.1.2.</span> <span class="toc-text">输入输出样例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#输入样例-1："><span class="toc-number">2.1.2.1.</span> <span class="toc-text">输入样例#1：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#输出样例-1："><span class="toc-number">2.1.2.2.</span> <span class="toc-text">输出样例#1：</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Ⅲ、分析问题"><span class="toc-number">3.</span> <span class="toc-text">Ⅲ、分析问题</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/23/【置顶】博客说明/" class="archive-article-date">
-  	<time datetime="2019-03-22T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-23</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/23/【置顶】博客说明/">【置顶】博客说明</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">置顶</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/23/莫比乌斯反演推导即μ函数的证明/" class="archive-article-date">
-  	<time datetime="2019-03-22T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/23/莫比乌斯反演推导即μ函数的证明/">莫比乌斯反演推导即μ函数的证明</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">证明</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/23/浅谈斯坦纳树 && [WC2008]游览计划题解/" class="archive-article-date">
-  	<time datetime="2019-03-22T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/23/浅谈斯坦纳树 && [WC2008]游览计划题解/">浅谈斯坦纳树 &amp;&amp; [WC2008]游览计划题解</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -386,8 +390,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,

@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019 | _____hzf_____</title>
+  <title>莫比乌斯反演推导即μ函数的证明 | _____hzf_____</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="_____hzf_____">
-<meta property="og:url" content="http://yoursite.com/archives/2019/index.html">
+  <meta name="description" content="题目描述求长度为$n$且仅包含小写英文字母且循环节长度恰为$n$的字符串的个数。意思是求一个长度为$n$的字符串的个数，它的任意一个子串重复若干次都不能和原串相等设$f(n)$为长度为$n$的字符串个数，设$g(n)$为题目所求答案的个数">
+<meta name="keywords" content="证明">
+<meta property="og:type" content="article">
+<meta property="og:title" content="莫比乌斯反演推导即μ函数的证明">
+<meta property="og:url" content="http://yoursite.com/2019/03/23/莫比乌斯反演推导即μ函数的证明/index.html">
 <meta property="og:site_name" content="_____hzf_____">
+<meta property="og:description" content="题目描述求长度为$n$且仅包含小写英文字母且循环节长度恰为$n$的字符串的个数。意思是求一个长度为$n$的字符串的个数，它的任意一个子串重复若干次都不能和原串相等设$f(n)$为长度为$n$的字符串个数，设$g(n)$为题目所求答案的个数">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-03-23T10:55:16.083Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="_____hzf_____">
+<meta name="twitter:title" content="莫比乌斯反演推导即μ函数的证明">
+<meta name="twitter:description" content="题目描述求长度为$n$且仅包含小写英文字母且循环节长度恰为$n$的字符串的个数。意思是求一个长度为$n$的字符串的个数，它的任意一个子串重复若干次都不能和原串相等设$f(n)$为长度为$n$的字符串个数，设$g(n)$为题目所求答案的个数">
   
     <link rel="alternative" href="/atom.xml" title="_____hzf_____" type="application/atom+xml">
   
@@ -154,150 +159,50 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-莫比乌斯反演推导即μ函数的证明" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      莫比乌斯反演推导即μ函数的证明
+    </h1>
+  
+
+        
+        <a href="/2019/03/23/莫比乌斯反演推导即μ函数的证明/" class="archive-article-date">
+  	<time datetime="2019-03-22T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-23</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a><strong>题目描述</strong></h3><p>求长度为$n$且仅包含小写英文字母且循环节长度恰为$n$的字符串的个数。<br>意思是求一个长度为$n$的字符串的个数，它的任意一个子串重复若干次都不能和原串相等<br>设$f(n)$为长度为$n$的字符串个数，设$g(n)$为题目所求答案的个数<br><a id="more"></a><br>显然</p>
+<script type="math/tex; mode=display">f(n)=26^n,f(n)=\sum_{d\mid n}g(d)</script><p>第一个很显然<br>第二个意思是 任意一个长度为$d(d\mid n)$的串，重复$\frac{n}{d}$次的和，就是长度为$n$的字符串的个数<br>又设</p>
+<script type="math/tex; mode=display">\sum_{d\mid n}\mu(d)=[n=1]</script><p>$[n=1]$的意思为当$n=1$时，表达式值为$1$，否则为$0$<br>因为</p>
+<script type="math/tex; mode=display">g(n)=\sum_{m\mid n}[\frac{n}{m}=1]g(m)</script><p>当表达式为真时，$n=m$，$g(n)=g(m)$<br>将$\sum_{d\mid n}\mu(d)=[n=1]$代入</p>
+<script type="math/tex; mode=display">g(n)=\sum_{m\mid n}\sum_{d\mid\frac{n}{m}}\mu(d)g(m)</script><p>因为$m\mid n$，$d\mid\frac{n}{m}$，所以可以先枚举d</p>
+<script type="math/tex; mode=display">g(n)=\sum_{d\mid n}\mu(d)\sum_{m\mid\frac{n}{d}}g(m)</script><p>再看一开始的$f(n)$</p>
+<script type="math/tex; mode=display">f(n)=\sum_{d\mid n}g(d)</script><script type="math/tex; mode=display">g(n)=\sum_{d\mid n}\mu(d)\sum_{m\mid\frac{n}{d}}g(m)</script><p>代入</p>
+<script type="math/tex; mode=display">g(n)=\sum_{d\mid n}\mu(d)f(\frac{n}{d})</script><p>调换下标$d\to \frac{n}{d}$<br>因为枚举$d\mid n$等价于$\frac{n}{d}\mid n$</p>
+<script type="math/tex; mode=display">g(n)=\sum_{d\mid n}\mu(\frac{n}{d})f(d)</script><p>因为</p>
+<script type="math/tex; mode=display">f(n)=26^n(O(logn)快速幂)</script><script type="math/tex; mode=display">\sum_{d\mid n}枚举因数(O(\sqrt n))</script><p>如何求$\mu(n)$？</p>
+<hr>
+<p>已知<script type="math/tex">x=\prod_{i=1}^{K}p_i^{a_i}(p_i\in prime),\mu(x)=\prod_{i=1}^{K}[a_i=1](−1)</script><br>求证<script type="math/tex">\sum_{d\mid n}\mu(d)=[n=1]</script><br>证明:<br>设$f(n)=\sum_{d\mid n}\mu(d)$<br>显然$f(1)=\mu(1)=1$<br>假设已经证明$f(1)$到$f(n-1)$，$f(1)=1$，$f(2)$到$f(n-1)$都为0<br>当存在某一个$a_i&gt;0$时</p>
+<script type="math/tex; mode=display">f(n)=\sum_{d\mid n}\mu(d),f(\frac{n}{p_i})=\sum_{d\mid\frac{n}{p_i}}\mu(d)</script><script type="math/tex; mode=display">\because\frac{n}{p_i}<n</script><script type="math/tex; mode=display">\therefore f(\frac{n}{p_i})=\sum_{d\mid\frac{n}{p_i}}\mu(d)=0</script><script type="math/tex; mode=display">f(\frac{n}{p_i})=\sum_{d\times p_i\mid n}\mu(d)=0</script><script type="math/tex; mode=display">\because f(n)=\sum_{d\mid\frac{n}{p_i}}\mu(d)+\sum_{d\not\mid\frac{n}{p_i},d\mid n}\mu(d)</script><script type="math/tex; mode=display">f(n)=0+\sum_{d\not\mid\frac{n}{p_i},d\mid n}\mu(d)</script><p>设$\sum_{d\not\mid\frac{n}{p_i},d\mid n}\mu(d)$中$d$分解质因数后有$b_i$个$p_i$<br>则</p>
+<script type="math/tex; mode=display">\begin{cases}b_i\leq a_i(d\mid n)\\b_i>a_i-1(d\not\mid\frac{n}{p_i})\end{cases}</script><script type="math/tex; mode=display">\therefore b_i=a_i</script><script type="math/tex; mode=display">\because a_i>1</script><script type="math/tex; mode=display">\therefore b_i>1</script><script type="math/tex; mode=display">\mu(d)=0</script><script type="math/tex; mode=display">\sum_{d\not\mid\frac{n}{p_i},d\mid n}\mu(d)=0</script><script type="math/tex; mode=display">\therefore f(n)=0+0=0</script><p>当对于所有$a_i$，$a_i=1$时</p>
+<script type="math/tex; mode=display">f(n)=\sum_{d\mid n}\mu(d)</script><script type="math/tex; mode=display">f(n)=\sum_{d\mid\frac{n}{p_i}}\mu(d)+\sum_{d\mid\frac{n}{p_i}}\mu(d\times p_i)</script><script type="math/tex; mode=display">\because a_i=1</script><p>所以$d$中不含$p_i$因式</p>
+<script type="math/tex; mode=display">\therefore\sum_{d\mid\frac{n}{p_i}}\mu(d\times p_i)=-\sum_{d\mid\frac{n}{p_i}}\mu(d)</script><script type="math/tex; mode=display">\therefore  f(n)=\sum_{d\mid\frac{n}{p_i}}\mu(d)-\sum_{d\mid\frac{n}{p_i}}\mu(d)=0</script><p>综上所述，$f(n)=[n=1]$</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/23/浅谈斜率优化dp/" class="archive-article-date">
-  	<time datetime="2019-03-22T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/23/浅谈斜率优化dp/">浅谈斜率优化dp</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/23/洛谷P5074 Eat the Trees 题解/" class="archive-article-date">
-  	<time datetime="2019-03-22T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/23/洛谷P5074 Eat the Trees 题解/">洛谷P5074 Eat the Trees 题解</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/23/【置顶】博客说明/" class="archive-article-date">
-  	<time datetime="2019-03-22T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/23/【置顶】博客说明/">【置顶】博客说明</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">置顶</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/23/莫比乌斯反演推导即μ函数的证明/" class="archive-article-date">
-  	<time datetime="2019-03-22T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/23/莫比乌斯反演推导即μ函数的证明/">莫比乌斯反演推导即μ函数的证明</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -309,61 +214,128 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/23/莫比乌斯反演推导即μ函数的证明/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/23/浅谈斯坦纳树 && [WC2008]游览计划题解/" class="archive-article-date">
-  	<time datetime="2019-03-22T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-23</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2019/03/23/【置顶】博客说明/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          【置顶】博客说明
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/03/23/浅谈斯坦纳树 && [WC2008]游览计划题解/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">浅谈斯坦纳树 &amp;&amp; [WC2008]游览计划题解</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/23/浅谈斯坦纳树 && [WC2008]游览计划题解/">浅谈斯坦纳树 &amp;&amp; [WC2008]游览计划题解</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目描述"><span class="toc-number">1.</span> <span class="toc-text">题目描述</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -386,8 +358,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,

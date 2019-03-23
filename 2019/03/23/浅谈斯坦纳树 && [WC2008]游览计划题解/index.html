@@ -6,15 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019 | _____hzf_____</title>
+  <title>浅谈斯坦纳树 &amp;&amp; [WC2008]游览计划题解 | _____hzf_____</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="_____hzf_____">
-<meta property="og:url" content="http://yoursite.com/archives/2019/index.html">
+  <meta name="description" content="Ⅰ、抛出问题题目描述从未来过绍兴的小D有幸参加了Winter Camp 2008，他被这座历史名城的秀丽风景所吸引，强烈要求游览绍兴及其周边的所有景点。主办者将绍兴划分为$N$行$M$列$(N×M)$个分块，如下图$(8×8)$：">
+<meta name="keywords" content="算法,题解">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浅谈斯坦纳树 &amp;&amp; [WC2008]游览计划题解">
+<meta property="og:url" content="http://yoursite.com/2019/03/23/浅谈斯坦纳树 && [WC2008]游览计划题解/index.html">
 <meta property="og:site_name" content="_____hzf_____">
+<meta property="og:description" content="Ⅰ、抛出问题题目描述从未来过绍兴的小D有幸参加了Winter Camp 2008，他被这座历史名城的秀丽风景所吸引，强烈要求游览绍兴及其周边的所有景点。主办者将绍兴划分为$N$行$M$列$(N×M)$个分块，如下图$(8×8)$：">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://cdn.luogu.org/upload/pic/15472.png">
+<meta property="og:image" content="https://cdn.luogu.org/upload/pic/15473.png">
+<meta property="og:updated_time" content="2019-03-23T10:55:09.382Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="_____hzf_____">
+<meta name="twitter:title" content="浅谈斯坦纳树 &amp;&amp; [WC2008]游览计划题解">
+<meta name="twitter:description" content="Ⅰ、抛出问题题目描述从未来过绍兴的小D有幸参加了Winter Camp 2008，他被这座历史名城的秀丽风景所吸引，强烈要求游览绍兴及其周边的所有景点。主办者将绍兴划分为$N$行$M$列$(N×M)$个分块，如下图$(8×8)$：">
+<meta name="twitter:image" content="https://cdn.luogu.org/upload/pic/15472.png">
   
     <link rel="alternative" href="/atom.xml" title="_____hzf_____" type="application/atom+xml">
   
@@ -154,188 +162,43 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-浅谈斯坦纳树 &amp;&amp; [WC2008]游览计划题解" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      浅谈斯坦纳树 &amp;&amp; [WC2008]游览计划题解
+    </h1>
+  
+
+        
+        <a href="/2019/03/23/浅谈斯坦纳树 && [WC2008]游览计划题解/" class="archive-article-date">
+  	<time datetime="2019-03-22T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-23</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Ⅰ、抛出问题"><a href="#Ⅰ、抛出问题" class="headerlink" title="Ⅰ、抛出问题"></a><strong>Ⅰ、抛出问题</strong></h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a><strong>题目描述</strong></h2><p>从未来过绍兴的小D有幸参加了Winter Camp 2008，他被这座历史名城的秀丽风景所吸引，强烈要求游览绍兴及其周边的所有景点。<br>主办者将绍兴划分为$N$行$M$列$(N×M)$个分块，如下图$(8×8)$：<br><a id="more"></a><br><img src="https://cdn.luogu.org/upload/pic/15472.png" alt><br>景点含于方块内，且一个方块至多有一个景点。无景点的方块视为路。<br>为了保证安全与便利，主办方依据路况和治安状况，在非景点的一些方块内安排不同数量的志愿者；在景点内聘请导游（导游不是志愿者）。在选择旅游方案时，保证任意两个景点之间，存在一条路径，在这条路径所经过的每一个方块都有志愿者或者该方块为景点。既能满足选手们游览的需要，又能够让志愿者的总数最少。<br>例如，在上面的例子中，在每个没有景点的方块中填入一个数字，表示控制该方块最少需要的志愿者数目：<br><img src="https://cdn.luogu.org/upload/pic/15473.png" alt><br>图中用深色标出的方块区域就是一种可行的志愿者安排方案，一共需要20名志愿者。由图可见，两个相邻的景点是直接（有景点内的路）连通的（如沈园和八字桥）。<br>现在，希望你能够帮助主办方找到一种最好的安排方案。</p>
+<h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a><strong>Input</strong></h3><p>第一行有两个整数，N和M，描述方块的数目。<br>接下来N行，每行有M个非负整数，如果该整数为0，则该方块为一个景点；<br>否则表示控制该方块至少需要的志愿者数目。相邻的整数用（若干个）空格隔开，<br>行首行末也可能有多余的空格。</p>
+<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a><strong>Output</strong></h3><p>第一行有两个整数，N和M，描述方块的数目。<br>接下来N行，每行有M个非负整数，如果该整数为0，则该方块为一个景点；<br>否则表示控制该方块至少需要的志愿者数目。相邻的整数用（若干个）空格隔开，<br>行首行末也可能有多余的空格。</p>
+<h3 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a><strong>Sample Input</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">4 4</span><br><span class="line">0 1 1 0</span><br><span class="line">2 5 5 1</span><br><span class="line">1 5 5 1</span><br><span class="line">0 1 1 0</span><br></pre></td></tr></table></figure>
+<h3 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a><strong>Sample Output</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">xoox</span><br><span class="line">___o</span><br><span class="line">___o</span><br><span class="line">xoox</span><br></pre></td></tr></table></figure>
+<h3 id="HINT"><a href="#HINT" class="headerlink" title="HINT"></a><strong>HINT</strong></h3><p>所有的 10 组数据中 N, M ，以及景点数 K 的范围规定如下<br>输入文件中的所有整数均不小于 0 且不超过 2^16<br>感谢@panda_2134 提供Special Judge</p>
+<h1 id="Ⅱ、分析问题"><a href="#Ⅱ、分析问题" class="headerlink" title="Ⅱ、分析问题"></a><strong>Ⅱ、分析问题</strong></h1><p>斯坦纳树，用于解决一类生成树问题，如在图上做最小生成树，使得每个目标点互相联通的这种题<br>对于此题，设$dp[i][sta]$表示在$i$号节点，与目标点的连通性为$sta$的最小花费<br>则有</p>
+<script type="math/tex; mode=display">dp[i][sta]=min_{s\in sta} \{dp[i][s]+dp[i][sta\otimes s]-val[i]\}</script><p>大意为$s$为$sta$的子集，$dp[i][sta]$的值则等于其两个互补的子集之和，因为$i$号节点算了两次，所以最后要减去一个$val[i]$，表示减去加入$i$号点所需的花费<br>同时，还有状态转移方程</p>
+<script type="math/tex; mode=display">dp[i][sta]=\min\{dp[j][sta]+val[i](i\to j)\}</script><p>表示$j$与目标点的连通性为$sta$，即再连一条$i\to j$的边即可让$i$与目标点的连通性变为$sta$<br>第二个状态转移方程用SPFA暴力更新即可<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">#define F(i,j,n) for(register int i=j;i&lt;=n;i++)</span><br><span class="line">#define INF 0x3f3f3f3f</span><br><span class="line">#define ll long long</span><br><span class="line">#define mem(i,j) memset(i,j,sizeof(i))</span><br><span class="line">#define pii pair&lt;int,int&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">struct hahaha&#123;</span><br><span class="line">	int x,y,sta;</span><br><span class="line">&#125;pre[20][20][1050];</span><br><span class="line">const int dx[4]=&#123;0,1,0,-1&#125;,dy[4]=&#123;1,0,-1,0&#125;;//位移数组</span><br><span class="line">int n,m,mp[50][50],cnt=0,f[50][50][2050],lx,ly;//本题中点的标号按坐标存，即(i,j)表示第一维</span><br><span class="line">queue&lt;pii&gt;q;//SPFA队列</span><br><span class="line">bool vis[50][50];//(i,j)这个点是否走过</span><br><span class="line">inline int read()&#123;</span><br><span class="line">    int datta=0;char chchc=getchar();bool okoko=0;</span><br><span class="line">    while(chchc&lt;&apos;0&apos;||chchc&gt;&apos;9&apos;)&#123;if(chchc==&apos;-&apos;)okoko=1;chchc=getchar();&#125;</span><br><span class="line">    while(chchc&gt;=&apos;0&apos;&amp;&amp;chchc&lt;=&apos;9&apos;)&#123;datta=datta*10+chchc-&apos;0&apos;;chchc=getchar();&#125;</span><br><span class="line">    return okoko?-datta:datta;</span><br><span class="line">&#125;</span><br><span class="line">inline void SPFA(int now_sta)&#123;</span><br><span class="line">	while(!q.empty())&#123;</span><br><span class="line">		int x=q.front().first,y=q.front().second;</span><br><span class="line">		vis[x][y]=0;</span><br><span class="line">		F(p,0,3)&#123;</span><br><span class="line">			int tx=x+dx[p],ty=y+dy[p];</span><br><span class="line">			if(tx&gt;=1&amp;&amp;tx&lt;=n&amp;&amp;ty&gt;=1&amp;&amp;ty&lt;=m)&#123;</span><br><span class="line">				if(f[tx][ty][now_sta]&gt;f[x][y][now_sta]+mp[tx][ty])&#123;</span><br><span class="line">					f[tx][ty][now_sta]=f[x][y][now_sta]+mp[tx][ty];//转移</span><br><span class="line">					pre[tx][ty][now_sta].x=x;</span><br><span class="line">					pre[tx][ty][now_sta].y=y;</span><br><span class="line">					pre[tx][ty][now_sta].sta=now_sta;//记录一下有哪个状态转移而来，方便处理第二问</span><br><span class="line">					if(!vis[tx][ty])</span><br><span class="line">						vis[tx][ty]=1,q.push(make_pair(tx,ty));</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		q.pop();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">inline void dfs(int x,int y,int sta)&#123;</span><br><span class="line">	if(!pre[x][y][sta].x&amp;&amp;!pre[x][y][sta].y)//如果没有，说明走到了一条分支的尽头，return</span><br><span class="line">		return ;</span><br><span class="line">	vis[x][y]=1;//标记走过</span><br><span class="line">	if(pre[x][y][sta].x==x&amp;&amp;pre[x][y][sta].y==y)//如果是由(x,y)位置的另一个状态转移而来(即主函数里的转移)</span><br><span class="line">		dfs(x,y,sta^pre[x][y][sta].sta);//递归寻找补集</span><br><span class="line">	dfs(pre[x][y][sta].x,pre[x][y][sta].y,pre[x][y][sta].sta);//寻找周围节点(即SPFA中的转移)</span><br><span class="line">&#125;</span><br><span class="line">int main()&#123;</span><br><span class="line">	mem(f,0x3f);</span><br><span class="line">	n=read();m=read();</span><br><span class="line">	F(i,1,n)</span><br><span class="line">		F(j,1,m)&#123;</span><br><span class="line">			mp[i][j]=read();</span><br><span class="line">			if(!mp[i][j])</span><br><span class="line">				f[i][j][1&lt;&lt;(cnt++)]=0,lx=i,ly=j;//随便记录一个标记点记做(lx,ly)</span><br><span class="line">		&#125;</span><br><span class="line">	F(sta,0,(1&lt;&lt;cnt)-1)&#123;//枚举联通状态</span><br><span class="line">		F(i,1,n)&#123;</span><br><span class="line">			F(j,1,m)&#123;//枚举坐标</span><br><span class="line">				for(int s=sta;s;s=(s-1)&amp;sta)&#123;//枚举子集</span><br><span class="line">					if(f[i][j][sta]&gt;f[i][j][s]+f[i][j][s^sta]-mp[i][j])&#123;</span><br><span class="line">						f[i][j][sta]=f[i][j][s]+f[i][j][s^sta]-mp[i][j];//转移</span><br><span class="line">						pre[i][j][sta].x=i;</span><br><span class="line">						pre[i][j][sta].y=j;</span><br><span class="line">						pre[i][j][sta].sta=s;//记录由哪个状态转移而来</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">				if(f[i][j][sta]&lt;0x3f3f3f3f)</span><br><span class="line">					q.push(make_pair(i,j)),vis[i][j]=1;//如果有值，加入SPFA更新队列</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		SPFA(sta);//SPFA暴力更新周围节点</span><br><span class="line">	&#125;</span><br><span class="line">	mem(vis,0);</span><br><span class="line">	printf(&quot;%d\n&quot;,f[lx][ly][(1&lt;&lt;cnt)-1]);//第一问</span><br><span class="line">	dfs(lx,ly,(1&lt;&lt;cnt)-1);//寻找走了哪些点</span><br><span class="line">	F(i,1,n)</span><br><span class="line">		F(j,1,m)&#123;</span><br><span class="line">			if(!mp[i][j])//如果是障碍物</span><br><span class="line">				printf(&quot;x&quot;);</span><br><span class="line">			else</span><br><span class="line">				printf(&quot;%c&quot;,vis[i][j]==1?&apos;o&apos;:&apos;_&apos;);//走过就o,没走过就_</span><br><span class="line">		printf(&quot;\n&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/23/浅谈斜率优化dp/" class="archive-article-date">
-  	<time datetime="2019-03-22T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/23/浅谈斜率优化dp/">浅谈斜率优化dp</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/23/洛谷P5074 Eat the Trees 题解/" class="archive-article-date">
-  	<time datetime="2019-03-22T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/23/洛谷P5074 Eat the Trees 题解/">洛谷P5074 Eat the Trees 题解</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/23/【置顶】博客说明/" class="archive-article-date">
-  	<time datetime="2019-03-22T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/23/【置顶】博客说明/">【置顶】博客说明</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">置顶</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/23/莫比乌斯反演推导即μ函数的证明/" class="archive-article-date">
-  	<time datetime="2019-03-22T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/23/莫比乌斯反演推导即μ函数的证明/">莫比乌斯反演推导即μ函数的证明</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">证明</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/23/浅谈斯坦纳树 && [WC2008]游览计划题解/" class="archive-article-date">
-  	<time datetime="2019-03-22T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/23/浅谈斯坦纳树 && [WC2008]游览计划题解/">浅谈斯坦纳树 &amp;&amp; [WC2008]游览计划题解</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -351,19 +214,123 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/23/浅谈斯坦纳树 && [WC2008]游览计划题解/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2019/03/23/莫比乌斯反演推导即μ函数的证明/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          莫比乌斯反演推导即μ函数的证明
+        
+      </div>
+    </a>
   
   
-    </div></section>
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Ⅰ、抛出问题"><span class="toc-number">1.</span> <span class="toc-text">Ⅰ、抛出问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#题目描述"><span class="toc-number">1.1.</span> <span class="toc-text">题目描述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Input"><span class="toc-number">1.1.1.</span> <span class="toc-text">Input</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Output"><span class="toc-number">1.1.2.</span> <span class="toc-text">Output</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sample-Input"><span class="toc-number">1.1.3.</span> <span class="toc-text">Sample Input</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sample-Output"><span class="toc-number">1.1.4.</span> <span class="toc-text">Sample Output</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HINT"><span class="toc-number">1.1.5.</span> <span class="toc-text">HINT</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Ⅱ、分析问题"><span class="toc-number">2.</span> <span class="toc-text">Ⅱ、分析问题</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -386,8 +353,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
