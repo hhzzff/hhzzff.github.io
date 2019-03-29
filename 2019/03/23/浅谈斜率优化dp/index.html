@@ -16,10 +16,13 @@
 <meta property="og:site_name" content="_____hzf_____">
 <meta property="og:description" content="Ⅰ、前置知识$y=kx+b$$k$叫斜率，$b$叫截距$(x_1,y_1)$$(x_2,y_2)$两点连成的直线的斜率$k=\frac{y1-y2}{x1-x2}$ Ⅱ、抛出问题">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-23T10:55:03.571Z">
+<meta property="og:image" content="https://i.loli.net/2019/02/23/5c70fd87c5674.png">
+<meta property="og:image" content="https://i.loli.net/2019/02/23/5c70fe42e4712.png">
+<meta property="og:updated_time" content="2019-03-23T15:51:17.205Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅谈斜率优化dp">
 <meta name="twitter:description" content="Ⅰ、前置知识$y=kx+b$$k$叫斜率，$b$叫截距$(x_1,y_1)$$(x_2,y_2)$两点连成的直线的斜率$k=\frac{y1-y2}{x1-x2}$ Ⅱ、抛出问题">
+<meta name="twitter:image" content="https://i.loli.net/2019/02/23/5c70fd87c5674.png">
   
     <link rel="alternative" href="/atom.xml" title="_____hzf_____" type="application/atom+xml">
   
@@ -195,47 +198,7 @@
 <script type="math/tex; mode=display">f[i]=f[j]+s\times c_n-s\times c_j+t_i\times c_i-t_i\times c_j</script><p>移项</p>
 <script type="math/tex; mode=display">f[i]-s\times c_n+s\times c_j-t_i\times c_i+t_i\times c_j=f[j]</script><script type="math/tex; mode=display">f[j]=f[i]-s\times c_n+s\times c_j-t_i\times c_i+t_i\times c_j</script><p>提取公因式</p>
 <script type="math/tex; mode=display">f[j]=c_j\times(s+t_i)+f[i]-s\times c_n+-t_i\times c_i</script><p>此时式子推成这样<br>再看一眼前置知识<br>$y=kx+b?$<br>此时我们的式子就像一条直线解析式！</p>
-<script type="math/tex; mode=display">x=c_j,y=f[j],k=s+t_i,b=f[i]-s\times c_n+-t_i\times c_i</script><p>我们想要最小化$f[i]$，就是最小化$b$<br>而我们此时要做的，就是用一条已知斜率的直线，利用已有的坐标，找到一个最小的$b$<br>如图，现在处理到$i$，则共有$i-1$个坐标为$(z_j,f[j])(1\leq j<a href="i)$的点
-如图所示
-![](https://i.loli.net/2019/02/23/5c70fd87c5674.png)
-右下角为当前处理的斜率为$s+t_i$的直线，我们要将它向上平移，直到和上方$i-1$个点中的一个相交
-显然要找的点$j$（也叫决策点）一定在图形的凸包上
-又很显然，决策点一定在下凸壳上，因为下凸壳上的点显然比上凸壳更优
-又很显然，决策点一定在下凸壳的右半侧，因为$k$（即$s+t_i$）一定大于$0$
-叕很显然找到决策点之后是这样的
-![](https://i.loli.net/2019/02/23/5c70fe42e4712.png)
-如何找到决策点？
-观察可以知道，凸包上的直线的斜率具有单调性
-二分！
-每次二分一个点，$check$这个点左侧的直线的斜率是否小于$s+t_i$，右侧的斜率是否大于$s+t_i$，如果是就证明找到了决策点
-手玩一下更好理解
-找到决策点之后，很明显，决策点左边所有的直线的截距都要大于$s+t_i$，所以左边的所有点都没有当前点优
-于是拿单调队列存一下凸包是上的点，如果没有当前直线优则踢掉
-找到决策点后，相当于找到了$j$，更新$f[i]$
-更新完$f[i]$后，为了方便后续的查找，将$(c_i,f[i])$插入凸包，并且维护一下凸包的单调性
-最后输出$f[n]$即可
-代码：
-&lt;!--￼0--">i)$的点
-如图所示
-![](https://i.loli.net/2019/02/23/5c70fd87c5674.png)
-右下角为当前处理的斜率为$s+t_i$的直线，我们要将它向上平移，直到和上方$i-1$个点中的一个相交
-显然要找的点$j$（也叫决策点）一定在图形的凸包上
-又很显然，决策点一定在下凸壳上，因为下凸壳上的点显然比上凸壳更优
-又很显然，决策点一定在下凸壳的右半侧，因为$k$（即$s+t_i$）一定大于$0$
-叕很显然找到决策点之后是这样的
-![](https://i.loli.net/2019/02/23/5c70fe42e4712.png)
-如何找到决策点？
-观察可以知道，凸包上的直线的斜率具有单调性
-二分！
-每次二分一个点，$check$这个点左侧的直线的斜率是否小于$s+t_i$，右侧的斜率是否大于$s+t_i$，如果是就证明找到了决策点
-手玩一下更好理解
-找到决策点之后，很明显，决策点左边所有的直线的截距都要大于$s+t_i$，所以左边的所有点都没有当前点优
-于是拿单调队列存一下凸包是上的点，如果没有当前直线优则踢掉
-找到决策点后，相当于找到了$j$，更新$f[i]$
-更新完$f[i]$后，为了方便后续的查找，将$(c_i,f[i])$插入凸包，并且维护一下凸包的单调性
-最后输出$f[n]$即可
-代码：
-&lt;!--￼0--</a></p>
+<script type="math/tex; mode=display">x=c_j,y=f[j],k=s+t_i,b=f[i]-s\times c_n+-t_i\times c_i</script><p>我们想要最小化$f[i]$，就是最小化$b$<br>而我们此时要做的，就是用一条已知斜率的直线，利用已有的坐标，找到一个最小的$b$<br>如图，现在处理到$i$，则共有$i-1$个坐标为$(z_j,f[j])(1\leq j &lt; i )$的点<br>如图所示<br><img src="https://i.loli.net/2019/02/23/5c70fd87c5674.png" alt><br>右下角为当前处理的斜率为$s+t_i$的直线，我们要将它向上平移，直到和上方$i-1$个点中的一个相交<br>显然要找的点$j$（也叫决策点）一定在图形的凸包上<br>又很显然，决策点一定在下凸壳上，因为下凸壳上的点显然比上凸壳更优<br>又很显然，决策点一定在下凸壳的右半侧，因为$k$（即$s+t_i$）一定大于$0$<br>叕很显然找到决策点之后是这样的<br><img src="https://i.loli.net/2019/02/23/5c70fe42e4712.png" alt><br>如何找到决策点？<br>观察可以知道，凸包上的直线的斜率具有单调性<br>二分！<br>每次二分一个点，$check$这个点左侧的直线的斜率是否小于$s+t_i$，右侧的斜率是否大于$s+t_i$，如果是就证明找到了决策点<br>手玩一下更好理解<br>找到决策点之后，很明显，决策点左边所有的直线的截距都要大于$s+t_i$，所以左边的所有点都没有当前点优<br>于是拿单调队列存一下凸包是上的点，如果没有当前直线优则踢掉<br>找到决策点后，相当于找到了$j$，更新$f[i]$<br>更新完$f[i]$后，为了方便后续的查找，将$(c_i,f[i])$插入凸包，并且维护一下凸包的单调性<br>最后输出$f[n]$即可<br>代码：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> F(i,j,n) for(register int i=j;i&lt;=n;i++)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x3f3f3f3f</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mem(i,j) memset(i,j,sizeof(i))</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> n,s,c[<span class="number">5010</span>],t[<span class="number">5010</span>],f[<span class="number">5010</span>],q[<span class="number">5010</span>],l,r;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">read</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> datta=<span class="number">0</span>;<span class="keyword">char</span> chchc=getchar();<span class="keyword">bool</span> okoko=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(chchc&lt;<span class="string">'0'</span>||chchc&gt;<span class="string">'9'</span>)&#123;<span class="keyword">if</span>(chchc==<span class="string">'-'</span>)okoko=<span class="number">1</span>;chchc=getchar();&#125;</span><br><span class="line">    <span class="keyword">while</span>(chchc&gt;=<span class="string">'0'</span>&amp;&amp;chchc&lt;=<span class="string">'9'</span>)&#123;datta=datta*<span class="number">10</span>+chchc-<span class="string">'0'</span>;chchc=getchar();&#125;</span><br><span class="line">    <span class="keyword">return</span> okoko?-datta:datta;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    n=read();s=read();</span><br><span class="line">    F(i,<span class="number">1</span>,n)&#123;</span><br><span class="line">        t[i]=t[i<span class="number">-1</span>]+read();</span><br><span class="line">        c[i]=c[i<span class="number">-1</span>]+read();</span><br><span class="line">    &#125;</span><br><span class="line">    mem(f,<span class="number">0x3f</span>);</span><br><span class="line">    f[<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">    l=<span class="number">1</span>;r=<span class="number">0</span>;</span><br><span class="line">    q[++r]=<span class="number">0</span>;</span><br><span class="line">    F(i,<span class="number">1</span>,n)&#123;</span><br><span class="line">        <span class="keyword">while</span>(l&lt;r&amp;&amp;f[q[l+<span class="number">1</span>]]-f[q[l]]&lt;=(s+t[i])*(c[q[l+<span class="number">1</span>]]-c[q[l]]))<span class="comment">//避免精度误差</span></span><br><span class="line">            l++;<span class="comment">//由于博主太菜了所以用的是线性而不是二分</span></span><br><span class="line">        f[i]=f[q[l]]+s*(c[n]-c[q[l]])+t[i]*(c[i]-c[q[l]]);<span class="comment">//更新</span></span><br><span class="line">        <span class="keyword">while</span>(l&lt;r&amp;&amp;(f[i]-f[q[r]])*(c[q[r]]-c[q[r<span class="number">-1</span>]])&lt;=(f[q[r]]-f[q[r<span class="number">-1</span>]])*(c[i]-c[q[r]]))</span><br><span class="line">            r--;</span><br><span class="line">        q[++r]=i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,f[n]);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
 
@@ -319,11 +282,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/03/23/洛谷P5074 Eat the Trees 题解/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/03/23/[置顶]博客说明/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          洛谷P5074 Eat the Trees 题解
+          【置顶】博客说明
         
       </div>
     </a>
