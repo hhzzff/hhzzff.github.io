@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="_____hzf_____">
 <meta property="og:description" content="1、KMPKMP模板">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-30T11:00:58.589Z">
+<meta property="og:updated_time" content="2019-03-30T11:03:26.251Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="字符串算法模板合集">
 <meta name="twitter:description" content="1、KMPKMP模板">
@@ -179,7 +179,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="1、KMP"><a href="#1、KMP" class="headerlink" title="1、KMP"></a>1、KMP</h3><h4 id="KMP模板"><a href="#KMP模板" class="headerlink" title="KMP模板"></a>KMP模板</h4><a id="more"></a>
+        <h2 id="1、KMP"><a href="#1、KMP" class="headerlink" title="1、KMP"></a><strong>1、KMP</strong></h2><h3 id="KMP模板"><a href="#KMP模板" class="headerlink" title="KMP模板"></a><strong>KMP模板</strong></h3><a id="more"></a>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;cstdio&gt;</span><br><span class="line">#include&lt;cmath&gt;</span><br><span class="line">#include&lt;algorithm&gt;</span><br><span class="line">#include&lt;cstring&gt;</span><br><span class="line">#define ll long long</span><br><span class="line">#define INF 2147483647</span><br><span class="line">#define mem(i,j) memset(i,j,sizeof(i))</span><br><span class="line">#define F(i,j,n) for(register int i=j;i&lt;=n;i++)</span><br><span class="line">using namespace std;</span><br><span class="line">char s1[1000010],s2[1000010];</span><br><span class="line">int Next[1000010],l1,l2;</span><br><span class="line">inline int read()&#123;</span><br><span class="line">	int datta=0;char chchc=getchar();bool okoko=0;</span><br><span class="line">	while(chchc&lt;&apos;0&apos;||chchc&gt;&apos;9&apos;)&#123;if(chchc==&apos;-&apos;)okoko=1;chchc=getchar();&#125;</span><br><span class="line">	while(chchc&gt;=&apos;0&apos;&amp;&amp;chchc&lt;=&apos;9&apos;)&#123;datta=datta*10+chchc-&apos;0&apos;;chchc=getchar();&#125;</span><br><span class="line">	if(okoko==1)return -datta;return datta;</span><br><span class="line">&#125;</span><br><span class="line">inline void get_Next()&#123;</span><br><span class="line">	int j=0;</span><br><span class="line">	F(i,1,l2)&#123;</span><br><span class="line">		while(j&amp;&amp;s2[j+1]!=s2[i+1])</span><br><span class="line">			j=Next[j];</span><br><span class="line">		if(s2[j+1]==s2[i+1])</span><br><span class="line">			j++;</span><br><span class="line">		Next[i+1]=j;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">inline void kmp()&#123;</span><br><span class="line">	int j=0;</span><br><span class="line">	F(i,1,l1)&#123;</span><br><span class="line">		while(j&amp;&amp;s2[j+1]!=s1[i])</span><br><span class="line">			j=Next[j];</span><br><span class="line">		if(s2[j+1]==s1[i])</span><br><span class="line">			j++;</span><br><span class="line">		if(j==l2)&#123;</span><br><span class="line">			printf(&quot;%d\n&quot;,i-j+1);</span><br><span class="line">			j=Next[j];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">int main()&#123;</span><br><span class="line">	scanf(&quot;%s%s&quot;,s1+1,s2+1);</span><br><span class="line">	l1=strlen(s1+1);l2=strlen(s2+1);</span><br><span class="line">	get_Next();</span><br><span class="line">	kmp();</span><br><span class="line">	F(i,1,l2-1)</span><br><span class="line">		printf(&quot;%d &quot;,Next[i]);</span><br><span class="line">	printf(&quot;%d\n&quot;,Next[l2]);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
 
@@ -263,18 +263,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/03/23/浅谈KMP字符串匹配算法/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/03/23/浅谈斜率优化dp/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          浅谈KMP字符串匹配算法
+          浅谈斜率优化dp
         
       </div>
     </a>
   
   
-    <a href="/2019/03/23/浅谈斜率优化dp/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">浅谈斜率优化dp</div>
+    <a href="/2019/03/23/[置顶]博客说明/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">【置顶】博客说明</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -301,7 +301,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、KMP"><span class="toc-number">1.</span> <span class="toc-text">1、KMP</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#KMP模板"><span class="toc-number">1.1.</span> <span class="toc-text">KMP模板</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、KMP"><span class="toc-number">1.</span> <span class="toc-text">1、KMP</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#KMP模板"><span class="toc-number">1.1.</span> <span class="toc-text">KMP模板</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -434,15 +434,15 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">模板</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">题解</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">模板</a>
               </li>
              
               <li class="article-tag-list-item">

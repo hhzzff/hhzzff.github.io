@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019/3 | _____hzf_____</title>
+  <title>USACO13NOV 没有找零No Change 题解 | _____hzf_____</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="_____hzf_____">
-<meta property="og:url" content="http://yoursite.com/archives/2019/03/page/2/index.html">
+  <meta name="description" content="题目描述约翰到商场购物，他的钱包里有K(1 &amp;lt;= K &amp;lt;= 16)个硬币，面值的范围是1..100,000,000。 约翰想按顺序买 N个物品(1 &amp;lt;= N &amp;lt;= 100,000)，第i个物品需要花费c(i)块钱，(1 &amp;lt;= c(i) &amp;lt;= 10,000)。 在依次进行的购买N个物品的过程中，约翰可以随时停下来付款，每次付款只用一个硬币，支付购买的内容是从上一次">
+<meta name="keywords" content="题解">
+<meta property="og:type" content="article">
+<meta property="og:title" content="USACO13NOV 没有找零No Change 题解">
+<meta property="og:url" content="http://yoursite.com/2019/03/23/USACO13NOV 没有找零No Change 题解/index.html">
 <meta property="og:site_name" content="_____hzf_____">
+<meta property="og:description" content="题目描述约翰到商场购物，他的钱包里有K(1 &amp;lt;= K &amp;lt;= 16)个硬币，面值的范围是1..100,000,000。 约翰想按顺序买 N个物品(1 &amp;lt;= N &amp;lt;= 100,000)，第i个物品需要花费c(i)块钱，(1 &amp;lt;= c(i) &amp;lt;= 10,000)。 在依次进行的购买N个物品的过程中，约翰可以随时停下来付款，每次付款只用一个硬币，支付购买的内容是从上一次">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-03-30T11:56:30.696Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="_____hzf_____">
+<meta name="twitter:title" content="USACO13NOV 没有找零No Change 题解">
+<meta name="twitter:description" content="题目描述约翰到商场购物，他的钱包里有K(1 &amp;lt;= K &amp;lt;= 16)个硬币，面值的范围是1..100,000,000。 约翰想按顺序买 N个物品(1 &amp;lt;= N &amp;lt;= 100,000)，第i个物品需要花费c(i)块钱，(1 &amp;lt;= c(i) &amp;lt;= 10,000)。 在依次进行的购买N个物品的过程中，约翰可以随时停下来付款，每次付款只用一个硬币，支付购买的内容是从上一次">
   
     <link rel="alternative" href="/atom.xml" title="_____hzf_____" type="application/atom+xml">
   
@@ -154,36 +159,64 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-USACO13NOV 没有找零No Change 题解" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/23/浅谈斯坦纳树 && [WC2008]游览计划题解/" class="archive-article-date">
-  	<time datetime="2019-03-22T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-23</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/23/浅谈斯坦纳树 && [WC2008]游览计划题解/">浅谈斯坦纳树 &amp;&amp; [WC2008]游览计划题解</a>
+    <h1 class="article-title" itemprop="name">
+      USACO13NOV 没有找零No Change 题解
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/03/23/USACO13NOV 没有找零No Change 题解/" class="archive-article-date">
+  	<time datetime="2019-03-22T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>约翰到商场购物，他的钱包里有K(1 &lt;= K &lt;= 16)个硬币，面值的范围是1..100,000,000。</p>
+<p>约翰想按顺序买 N个物品(1 &lt;= N &lt;= 100,000)，第i个物品需要花费c(i)块钱，(1 &lt;= c(i) &lt;= 10,000)。</p>
+<p>在依次进行的购买N个物品的过程中，约翰可以随时停下来付款，每次付款只用一个硬币，支付购买的内容是从上一次支付后开始到现在的这些所有物品（前提是该硬币足以支付这些物品的费用）。不幸的是，商场的收银机坏了，如果约翰支付的硬币面值大于所需的费用，他不会得到任何找零。<br><a id="more"></a><br>请计算出在购买完N个物品后，约翰最多剩下多少钱。如果无法完成购买，输出-1</p>
+<h3 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a>输入输出格式</h3><h4 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h4><ul>
+<li><p>Line 1: Two integers, K and N.</p>
+</li>
+<li><p>Lines 2..1+K: Each line contains the amount of money of one of FJ’s coins.</p>
+</li>
+<li><p>Lines 2+K..1+N+K: These N lines contain the costs of FJ’s intended purchases.</p>
+</li>
+</ul>
+<h4 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h4><ul>
+<li>Line 1: The maximum amount of money FJ can end up with, or -1 if FJ cannot complete all of his purchases.</li>
+</ul>
+<h3 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h3><h4 id="输入样例-1："><a href="#输入样例-1：" class="headerlink" title="输入样例#1："></a>输入样例#1：</h4><p>3 6<br>12<br>15<br>10<br>6<br>3<br>3<br>2<br>3<br>7 </p>
+<h4 id="输出样例-1：-复制"><a href="#输出样例-1：-复制" class="headerlink" title="输出样例#1： 复制"></a>输出样例#1： 复制</h4><p>12 </p>
+<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>FJ has 3 coins of values 12, 15, and 10. He must make purchases in sequence of value 6, 3, 3, 2, 3, and 7.</p>
+<p>FJ spends his 10-unit coin on the first two purchases, then the 15-unit coin on the remaining purchases. This leaves him with the 12-unit coin.</p>
+<p>题目大意：</p>
+<p>给出k个硬币，n个商品，可以调整使用硬币的顺序，依次购买商品，每次不会找零，求最后剩下的最大钱数，如不能买全，输出-1</p>
+<p>因为$k\leq16$，考虑状压</p>
+<p>设$dp_{sta}$表示状态为$sta$时（二进制，表示哪些硬币使用了，哪些没使用），从一号物品开始能购买的物品数量</p>
+<p>显然有</p>
+<p>当使用当前状态中未使用的一个硬币时</p>
+<p>$dp[new_sta]=max(dp[new_sta],k)$</p>
+<p>其中$new_sta$是转移后的新状态</p>
+<p>用$sum_k$表示前$i$个物品的总售价</p>
+<p>则k为$sum_k$能够支付起是的最大物品数量（最优性）</p>
+<p>二分一下即可求出k</p>
+<p>代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">#define ll long long</span><br><span class="line">#define INF 2147483647</span><br><span class="line">#define mem(i,j) memset(i,j,sizeof(i))</span><br><span class="line">#define F(i,j,n) for(register int i=j;i&lt;=n;i++)</span><br><span class="line">#define lowbit(i) i&amp;(-i)</span><br><span class="line">using namespace std;</span><br><span class="line">int k,n,c[20],p[100010],dp[1100000],sum[100010];</span><br><span class="line">inline int read()&#123;</span><br><span class="line">	int datta=0;char chchc=getchar();bool okoko=0;</span><br><span class="line">	while(chchc&lt;&apos;0&apos;||chchc&gt;&apos;9&apos;)&#123;if(chchc==&apos;-&apos;)okoko=1;chchc=getchar();&#125;</span><br><span class="line">	while(chchc&gt;=&apos;0&apos;&amp;&amp;chchc&lt;=&apos;9&apos;)&#123;datta=datta*10+chchc-&apos;0&apos;;chchc=getchar();&#125;</span><br><span class="line">	return okoko?-datta:datta;</span><br><span class="line">&#125;</span><br><span class="line">int main()&#123;</span><br><span class="line">	k=read();n=read();</span><br><span class="line">	F(i,1,k)</span><br><span class="line">		c[i]=read(),c[0]+=c[i];</span><br><span class="line">	F(i,1,n)</span><br><span class="line">		p[i]=read(),sum[i]=sum[i-1]+p[i];</span><br><span class="line">	mem(dp,-1);</span><br><span class="line">	dp[0]=0;</span><br><span class="line">	int ans=2147483647;</span><br><span class="line">	F(sta,0,(1&lt;&lt;k)-1)&#123;</span><br><span class="line">		if(dp[sta]==-1)</span><br><span class="line">			continue;</span><br><span class="line">		if(dp[sta]==n)&#123;</span><br><span class="line">			int _ans=0;</span><br><span class="line">			F(i,1,k)</span><br><span class="line">				if(sta&amp;(1&lt;&lt;(i-1)))</span><br><span class="line">					_ans+=c[i];</span><br><span class="line">			ans=min(ans,_ans);</span><br><span class="line">			continue;</span><br><span class="line">		&#125;</span><br><span class="line">		F(i,1,k)&#123;</span><br><span class="line">			if(sta&amp;(1&lt;&lt;(i-1)))</span><br><span class="line">				continue;</span><br><span class="line">			int l=dp[sta]+1,r=n,mid,_ans=-1;</span><br><span class="line">			while(l&lt;=r)&#123;</span><br><span class="line">				mid=(l+r)&gt;&gt;1;</span><br><span class="line">				if(sum[mid]&lt;=sum[dp[sta]]+c[i])</span><br><span class="line">					l=mid+1,_ans=mid;</span><br><span class="line">				else</span><br><span class="line">					r=mid-1;</span><br><span class="line">			&#125;</span><br><span class="line">			if(_ans==-1)</span><br><span class="line">				continue;</span><br><span class="line">			dp[sta|(1&lt;&lt;(i-1))]=max(dp[sta|(1&lt;&lt;(i-1))],_ans);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	printf(&quot;%d\n&quot;,ans==2147483647?-1:c[0]-ans);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -191,68 +224,131 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
         		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/23/USACO13NOV 没有找零No Change 题解/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/23/浅谈kdtree/" class="archive-article-date">
-  	<time datetime="2019-03-22T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-23</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2019/03/23/浅谈manacher回文串算法/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          浅谈manacher回文串算法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/03/23/浅谈KMP字符串匹配算法/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">浅谈KMP字符串匹配算法</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/23/浅谈kdtree/">浅谈kdtree</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目描述"><span class="toc-number">1.</span> <span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#输入输出格式"><span class="toc-number">2.</span> <span class="toc-text">输入输出格式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#输入格式："><span class="toc-number">2.1.</span> <span class="toc-text">输入格式：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#输出格式："><span class="toc-number">2.2.</span> <span class="toc-text">输出格式：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#输入输出样例"><span class="toc-number">3.</span> <span class="toc-text">输入输出样例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#输入样例-1："><span class="toc-number">3.1.</span> <span class="toc-text">输入样例#1：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#输出样例-1：-复制"><span class="toc-number">3.2.</span> <span class="toc-text">输出样例#1： 复制</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#说明"><span class="toc-number">4.</span> <span class="toc-text">说明</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
   
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2019/03/">&laquo; Prev</a><a class="page-number" href="/archives/2019/03/">1</a><span class="page-number current">2</span>
-    </nav>
+  
+
+  
+
   
 
 
@@ -276,8 +372,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
