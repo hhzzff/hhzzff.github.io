@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 题解 | _____hzf_____</title>
+  <title>浅谈CDQ分治 | _____hzf_____</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="_____hzf_____">
-<meta property="og:url" content="http://yoursite.com/tags/题解/index.html">
+  <meta name="description" content="Ⅰ、预备知识整体二分？？？ Ⅱ、抛出问题我们先来看一道洛谷的模板题">
+<meta name="keywords" content="算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浅谈CDQ分治">
+<meta property="og:url" content="http://yoursite.com/2019/03/23/浅谈CDQ分治/index.html">
 <meta property="og:site_name" content="_____hzf_____">
+<meta property="og:description" content="Ⅰ、预备知识整体二分？？？ Ⅱ、抛出问题我们先来看一道洛谷的模板题">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-03-30T10:59:02.270Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="_____hzf_____">
+<meta name="twitter:title" content="浅谈CDQ分治">
+<meta name="twitter:description" content="Ⅰ、预备知识整体二分？？？ Ⅱ、抛出问题我们先来看一道洛谷的模板题">
   
     <link rel="alternative" href="/atom.xml" title="_____hzf_____" type="application/atom+xml">
   
@@ -154,82 +159,48 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-浅谈CDQ分治" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/23/洛谷P5074 Eat the Trees 题解/" class="archive-article-date">
-  	<time datetime="2019-03-22T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-23</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/23/洛谷P5074 Eat the Trees 题解/">洛谷P5074 Eat the Trees 题解</a>
+    <h1 class="article-title" itemprop="name">
+      浅谈CDQ分治
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/03/23/浅谈CDQ分治/" class="archive-article-date">
+  	<time datetime="2019-03-22T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Ⅰ、预备知识"><a href="#Ⅰ、预备知识" class="headerlink" title="Ⅰ、预备知识"></a><strong>Ⅰ、预备知识</strong></h1><p><del>整体二分？？？</del></p>
+<h1 id="Ⅱ、抛出问题"><a href="#Ⅱ、抛出问题" class="headerlink" title="Ⅱ、抛出问题"></a><strong>Ⅱ、抛出问题</strong></h1><p>我们先来看一道洛谷的模板题<br><a id="more"></a></p>
+<h2 id="题目背景"><a href="#题目背景" class="headerlink" title="题目背景"></a><strong>题目背景</strong></h2><p>这是一道模板题<br>可以使用<del>bitset</del>(不会)，CDQ分治，<del>K-DTree</del>(不会)等方式解决。</p>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a><strong>题目描述</strong></h2><p>有$n$个元素，第$i$个元素有$a_i$、$b_i$、$c_i$三个属性，设$f(i)$表示满足$a_j\leq a_i$且$b_j\leq b_i$且$c_j\leq c_i$的$j$的数量。<br>对于$d\in[0, n)$，求$f(i)=d$的数量</p>
+<h3 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a><strong>输入输出格式</strong></h3><h4 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a><strong>输入格式：</strong></h4><p>第一行两个整数$n、k$，分别表示元素数量和最大属性值。<br>之后$n$行，每行三个整数$a_i$、$b_i$、$c_i$，分别表示三个属性值。</p>
+<h4 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a><strong>输出格式：</strong></h4><p>输出$n$行，第$d+1$行表示$f(i)=d$的$i$的数量。</p>
+<h3 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a><strong>输入输出样例</strong></h3><h4 id="输入样例-1："><a href="#输入样例-1：" class="headerlink" title="输入样例#1："></a><strong>输入样例#1：</strong></h4><p>10 3<br>3 3 3<br>2 3 3<br>2 3 1<br>3 1 1<br>3 1 2<br>1 3 1<br>1 1 2<br>1 2 2<br>1 3 2<br>1 2 1</p>
+<h4 id="输出样例-1："><a href="#输出样例-1：" class="headerlink" title="输出样例#1："></a><strong>输出样例#1：</strong></h4><p>3<br>1<br>3<br>0<br>1<br>0<br>1<br>0<br>0<br>1</p>
+<h4 id="说明："><a href="#说明：" class="headerlink" title="说明："></a><strong>说明：</strong></h4><p>$1\leq N\leq100000,1\leq k\leq200000$</p>
+<h1 id="Ⅲ、分析问题"><a href="#Ⅲ、分析问题" class="headerlink" title="Ⅲ、分析问题"></a><strong>Ⅲ、分析问题</strong></h1><p>CDQ分治，有国家队某巨佬发明<del>（仿佛是插头dp的论文作者？？？）</del>，主要用于解决带修改，查询，可排序序列的一系列问题，仅可支持<strong>离线操作</strong><br>CDQ分治的主要步骤有以下几点：<br><del>1、读入（废话）</del><br>1、将已经读入好的数据按照某关键字排序<br>2、设当前区间为$[l,r]$，递归处理左区间$[l,mid]$和右区间$[mid+1,r]$，计算左区间的修改操作对右区间的影响（一般用树状数组等数据结构维护）<br>3、清除数据结构内的修改数据<br>本题又叫三维偏序问题，是CDQ分治的经典题型<br>先按照第一维（即$a_i$）排序，这样就将问题转化到了二维<br>设当前区间为$[l,r]$<br>讲$[l,mid]$和$[mid+1,r]$分别按照第二维排序，此时在左区间中的$a$均小于有区间中的$a$(<strong>保证第一维</strong>)，设左区间已访问到$pl$，右区间已访问到$pr$$(l\leq pl\leq mid,mid+1\leq pr\leq r)$<br>当$b[pl]&lt;=b[pr]$时(<strong>保证第二维</strong>)，即将$pl$点的$c$值加入树状数组<br>统计比$pr$点的$c$值小或等于的点的数量(<strong>保证第三维</strong>)<br>详见代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">#define ll long long</span><br><span class="line">#define INF 2147483647</span><br><span class="line">#define mem(i,j) memset(i,j,sizeof(i))</span><br><span class="line">#define F(i,j,n) for(register int i=j;i&lt;=n;i++)</span><br><span class="line">#define lowbit(i) i&amp;(-i)//树状数组</span><br><span class="line">using namespace std;</span><br><span class="line">struct hahaha&#123;</span><br><span class="line">	int x,y,z,ans,cnt;//x,y,z分别对应a,b,c;ans表示题目中的f(i),即三维都小于等于i的数量,cnt表示x,y,z相等的点的数量，若只出现一次，则cnt=1</span><br><span class="line">&#125;f[100010],s[100010];//f为输入数据,s为处理后数据</span><br><span class="line">int nn,n,m,ans[100010],c[200010];//c是树状数组上的点,ans为最终答案</span><br><span class="line">inline int read()&#123;</span><br><span class="line">	int datta=0;char chchc=getchar();bool okoko=0;</span><br><span class="line">	while(chchc&lt;&apos;0&apos;||chchc&gt;&apos;9&apos;)&#123;if(chchc==&apos;-&apos;)okoko=1;chchc=getchar();&#125;</span><br><span class="line">	while(chchc&gt;=&apos;0&apos;&amp;&amp;chchc&lt;=&apos;9&apos;)&#123;datta=datta*10+chchc-&apos;0&apos;;chchc=getchar();&#125;</span><br><span class="line">	return okoko?-datta:datta;</span><br><span class="line">&#125;</span><br><span class="line">inline bool cmpx(hahaha a,hahaha b)&#123;//以x为第一关键字排序</span><br><span class="line">	return a.x==b.x?a.y==b.y?a.z&lt;b.z:a.y&lt;b.y:a.x&lt;b.x;</span><br><span class="line">&#125;</span><br><span class="line">inline bool cmpy(hahaha a,hahaha b)&#123;//以y为第一关键字排序</span><br><span class="line">	return a.y==b.y?a.z&lt;b.z:a.y&lt;b.y;</span><br><span class="line">&#125;</span><br><span class="line">inline void add(int x,int v)&#123;//树状数组修改</span><br><span class="line">	for(int i=x;i&lt;=m;i+=lowbit(i))</span><br><span class="line">		c[i]+=v;</span><br><span class="line">&#125;</span><br><span class="line">inline int ask(int x)&#123;//树状数组查询</span><br><span class="line">	int res=0;</span><br><span class="line">	for(int i=x;i;i-=lowbit(i))</span><br><span class="line">		res+=c[i];</span><br><span class="line">	return res;</span><br><span class="line">&#125;</span><br><span class="line">class CDQ_DC&#123;//之所以用class写是为了装逼</span><br><span class="line">	private:</span><br><span class="line">	public:</span><br><span class="line">	inline void CDQ(int l,int r)&#123;</span><br><span class="line">		if(l==r)//边界条件</span><br><span class="line">			return ;</span><br><span class="line">		int mid=(l+r)&gt;&gt;1;</span><br><span class="line">		CDQ(l,mid);</span><br><span class="line">		CDQ(mid+1,r);//递归处理左右区间</span><br><span class="line">		sort(s+l,s+mid+1,cmpy);</span><br><span class="line">		sort(s+mid+1,s+r+1,cmpy);//按y排序</span><br><span class="line">		int pl=l,pr=mid+1;</span><br><span class="line">		while(pr&lt;=r)&#123;</span><br><span class="line">			while(pl&lt;=mid&amp;&amp;s[pl].y&lt;=s[pr].y)</span><br><span class="line">				add(s[pl].z,s[pl].cnt),pl++;//加点</span><br><span class="line">			s[pr].ans+=ask(s[pr].z);//处理pr的ans</span><br><span class="line">			pr++;</span><br><span class="line">		&#125;</span><br><span class="line">		F(i,l,pl-1)</span><br><span class="line">			add(s[i].z,-s[i].cnt);//清空树状数组</span><br><span class="line">	&#125;</span><br><span class="line">&#125;C;</span><br><span class="line">int main()&#123;</span><br><span class="line">	nn=read();m=read();</span><br><span class="line">	F(i,1,nn)</span><br><span class="line">		f[i].x=read(),f[i].y=read(),f[i].z=read();</span><br><span class="line">	sort(f+1,f+nn+1,cmpx);//按x排序</span><br><span class="line">	int ct=0;</span><br><span class="line">	F(i,1,nn)&#123;</span><br><span class="line">		ct++;</span><br><span class="line">		if(f[i].x!=f[i+1].x||f[i].y!=f[i+1].y||f[i].z!=f[i+1].z)&#123;</span><br><span class="line">			s[++n]=f[i];</span><br><span class="line">			s[n].cnt=ct;//处理数据</span><br><span class="line">			ct=0;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	C.CDQ(1,n);</span><br><span class="line">	F(i,1,n)</span><br><span class="line">		ans[s[i].ans+s[i].cnt-1]+=s[i].cnt;//处理最后答案</span><br><span class="line">	F(i,0,nn-1)</span><br><span class="line">		printf(&quot;%d\n&quot;,ans[i]);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/23/浅谈斯坦纳树 && [WC2008]游览计划题解/" class="archive-article-date">
-  	<time datetime="2019-03-22T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/23/浅谈斯坦纳树 && [WC2008]游览计划题解/">浅谈斯坦纳树 &amp;&amp; [WC2008]游览计划题解</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
-        		</li>
-      		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
         		</li>
@@ -237,19 +208,128 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/23/浅谈CDQ分治/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2019/03/23/洛谷P5074 Eat the Trees 题解/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          洛谷P5074 Eat the Trees 题解
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2019/03/23/浅谈KMP字符串匹配算法/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">浅谈KMP字符串匹配算法</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Ⅰ、预备知识"><span class="toc-number">1.</span> <span class="toc-text">Ⅰ、预备知识</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Ⅱ、抛出问题"><span class="toc-number">2.</span> <span class="toc-text">Ⅱ、抛出问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#题目背景"><span class="toc-number">2.1.</span> <span class="toc-text">题目背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#题目描述"><span class="toc-number">2.2.</span> <span class="toc-text">题目描述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#输入输出格式"><span class="toc-number">2.2.1.</span> <span class="toc-text">输入输出格式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#输入格式："><span class="toc-number">2.2.1.1.</span> <span class="toc-text">输入格式：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#输出格式："><span class="toc-number">2.2.1.2.</span> <span class="toc-text">输出格式：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#输入输出样例"><span class="toc-number">2.2.2.</span> <span class="toc-text">输入输出样例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#输入样例-1："><span class="toc-number">2.2.2.1.</span> <span class="toc-text">输入样例#1：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#输出样例-1："><span class="toc-number">2.2.2.2.</span> <span class="toc-text">输出样例#1：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#说明："><span class="toc-number">2.2.2.3.</span> <span class="toc-text">说明：</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Ⅲ、分析问题"><span class="toc-number">3.</span> <span class="toc-text">Ⅲ、分析问题</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -272,9 +352,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
