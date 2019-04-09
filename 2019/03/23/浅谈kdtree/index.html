@@ -6,15 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 题解 | _____hzf_____</title>
+  <title>浅谈kdtree | _____hzf_____</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="_____hzf_____">
-<meta property="og:url" content="http://yoursite.com/tags/题解/index.html">
+  <meta name="description" content="Ⅰ、抛出问题Description有一列元素，每一个元素有三个属性:标号、标识符、数值。这些元素按照标号从1~n排列，标识符也是1~n的一个排列，初始时数值为0。当然我们可以把每个元素看成一个多维数字，那么这列元素就是一个数列。">
+<meta name="keywords" content="算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浅谈kdtree">
+<meta property="og:url" content="http://yoursite.com/2019/03/23/浅谈kdtree/index.html">
 <meta property="og:site_name" content="_____hzf_____">
+<meta property="og:description" content="Ⅰ、抛出问题Description有一列元素，每一个元素有三个属性:标号、标识符、数值。这些元素按照标号从1~n排列，标识符也是1~n的一个排列，初始时数值为0。当然我们可以把每个元素看成一个多维数字，那么这列元素就是一个数列。">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://i.loli.net/2019/02/01/5c546c0559fe6.png">
+<meta property="og:updated_time" content="2019-03-30T11:56:49.992Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="_____hzf_____">
+<meta name="twitter:title" content="浅谈kdtree">
+<meta name="twitter:description" content="Ⅰ、抛出问题Description有一列元素，每一个元素有三个属性:标号、标识符、数值。这些元素按照标号从1~n排列，标识符也是1~n的一个排列，初始时数值为0。当然我们可以把每个元素看成一个多维数字，那么这列元素就是一个数列。">
+<meta name="twitter:image" content="https://i.loli.net/2019/02/01/5c546c0559fe6.png">
   
     <link rel="alternative" href="/atom.xml" title="_____hzf_____" type="application/atom+xml">
   
@@ -166,82 +173,50 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-浅谈kdtree" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/23/USACO13NOV 没有找零No Change 题解/" class="archive-article-date">
-  	<time datetime="2019-03-22T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-23</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/23/USACO13NOV 没有找零No Change 题解/">USACO13NOV 没有找零No Change 题解</a>
+    <h1 class="article-title" itemprop="name">
+      浅谈kdtree
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/03/23/浅谈kdtree/" class="archive-article-date">
+  	<time datetime="2019-03-22T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Ⅰ、抛出问题"><a href="#Ⅰ、抛出问题" class="headerlink" title="Ⅰ、抛出问题"></a><strong>Ⅰ、抛出问题</strong></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a><strong>Description</strong></h2><p>有一列元素，每一个元素有三个属性:标号、标识符、数值。这些元素按照标号从1~n排列，标识符也是1~n的一个排列，初始时数值为0。当然我们可以把每个元素看成一个多维数字，那么这列元素就是一个数列。<br><a id="more"></a><br>现在请你维护这个数列，使其能支持以下两种操作：1.将标号为l~r的所有元素的数值先乘上x，再加上y；2.将标识符为l~r的所有元素的数值先乘上x，再加上y。当然你还得回答某些询问：1.标号为l~r的所有元素的数值的和；2.标识符为l~r的所有元素的数值的和。 </p>
+<h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a><strong>Input</strong></h3><p>第一行有两个正整数n、m，分别表示数列长度和操作与询问个数的总和。第二行有n个正整数，表示每个元素的标识符，保证这n个数是1~n的一个排列。接下来m行，每行的第一个数字为op。若op为0，则表示要进行第一个操作，接下去四个数字表示l,r,x,y;若op为1，则表示要进行第二个操作，接下去四个数字表示l,r,x,y;若op为2，则表示要回答第一个询问，接下去两个数字表示l,r;若op为3，则表示要回答第二个询问，接下去两个数字表示l,r。</p>
+<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a><strong>Output</strong></h3><p>包含若干行，每行表示一个询问的答案。由于答案可能很大，只要请你输出答案对536870912取模后的值即可。 </p>
+<h3 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a><strong>Sample Input</strong></h3><p>4 4<br>2 1 4 3<br>0 2 3 4 5<br>1 1 3 4 7<br>2 1 1<br>3 1 1 </p>
+<h3 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a><strong>Sample Output</strong></h3><p>7<br>27<br>HINT<br>第一次操作后，数列变为0 5 5 0<br>第二次操作后，数列变为7 27 5 7<br>N,M&lt;=50000, 1&lt;=L&lt;=R&lt;=N 0&lt;=X,Y&lt;=2^31-1</p>
+<h3 id="Source"><a href="#Source" class="headerlink" title="Source"></a><strong>Source</strong></h3><p>bzoj4303数列</p>
+<h1 id="Ⅱ、分析问题"><a href="#Ⅱ、分析问题" class="headerlink" title="Ⅱ、分析问题"></a><strong>Ⅱ、分析问题</strong></h1><p>kdtree，全称k-dimensional-tree，意思即为k维树，主要用于解决高维空间的修改查询操作，支持打标记，求最近最远点对等，类似于线段树等数据结构，接下来就来详细讲讲kdtree的写法</p>
+<h4 id="1、维护的数据"><a href="#1、维护的数据" class="headerlink" title="1、维护的数据"></a>1、维护的数据</h4><p>写数据结构，一定要弄清维护了哪些数据<br>kdtree是一种类似于线段树一样的数据结构，树上每一个节点管辖k维区间中的某一个范围，存每个维度的最大最小值以确定边界<br>代码：<br>注：代码中给的是二维kdtree的模板，所以只有两位<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">struct hahaha&#123;</span><br><span class="line">    int tp,ls,rs,v[2],Max[2],Min[2],val;//tp为当前节点维护的是哪一维，ls,rs分别为左右儿子编号，v存节点坐标，Max和Min维护当前节点管辖区间的最大最小(即边界)，val存当前点的权值</span><br><span class="line">    int cnt,mlt,sum,len;//cnt加标记,mlt乘标记,sum区间和,len区间长度</span><br><span class="line">    bool operator&lt;(const hahaha &amp;y)const&#123;</span><br><span class="line">        return v[T]&lt;y.v[T];//排序方便寻找中位数</span><br><span class="line">    &#125;</span><br><span class="line">&#125;tree[50010];</span><br></pre></td></tr></table></figure></p>
+<h5 id="2、建树"><a href="#2、建树" class="headerlink" title="2、建树"></a>2、建树</h5><p><img src="https://i.loli.net/2019/02/01/5c546c0559fe6.png" alt><br>如图，可以看出，kdtree是以一位一位顺次分割的方式建树的，<br>每次寻找区间中的中位数点，沿当前维度进行分割，如本图为先竖着再横着分割<br>第一次先找到横向的中位数，竖着分割一次（已用红色标出），在递归左右子树，找竖着的中位数，横向分割，再往下依次递归<br>以下建树部分代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">inline void updata(int p)&#123;//很显然的更新</span><br><span class="line">    tree[p].Min[0]=min(tree[p].v[0],min(tree[ls(p)].Min[0],tree[rs(p)].Min[0]));//x坐标的最小值</span><br><span class="line">    tree[p].Min[1]=min(tree[p].v[1],min(tree[ls(p)].Min[1],tree[rs(p)].Min[1]));//y坐标的最小值</span><br><span class="line">    tree[p].Max[0]=max(tree[p].v[0],max(tree[ls(p)].Max[0],tree[rs(p)].Max[0]));//x坐标的最大值</span><br><span class="line">    tree[p].Max[1]=max(tree[p].v[1],max(tree[ls(p)].Max[1],tree[rs(p)].Max[1]));//y坐标的最大值</span><br><span class="line">&#125;</span><br><span class="line">inline int build_tree(int l,int r,int tp)&#123;//l,r为区间,tp为区间维度</span><br><span class="line">    T=tp;//T也是区间维度，用于查找中位数</span><br><span class="line">    int mid=((l+r)&gt;&gt;1),p=mid;</span><br><span class="line">    nth_element(tree+l,tree+mid,tree+r+1);//这是个查找中位数的神奇函数</span><br><span class="line">    tree[p].tp=tp;</span><br><span class="line">    tree[p].mlt=1;</span><br><span class="line">    tree[p].len=r-l+1;//更新节点信息</span><br><span class="line">    if(l&lt;mid)</span><br><span class="line">        ls(p)=build_tree(l,mid-1,tp^1);//其实这个地方严谨来说应该是(tp+1)%2,因为维度是顺次遍历,假如说有5维,那就是按照0,1,2,3,4,0,1,2...这样的顺序遍历。</span><br><span class="line">        //注意，这里不是像线段树一样l,mid,而是l,mid-1,因为左区间不包括这个点本身</span><br><span class="line">        //之所以这样写是为了卡常</span><br><span class="line">    if(r&gt;mid)</span><br><span class="line">        rs(p)=build_tree(mid+1,r,tp^1);</span><br><span class="line">    updata(p);//再次更新节点信息</span><br><span class="line">    return p;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h5 id="3、修改操作"><a href="#3、修改操作" class="headerlink" title="3、修改操作"></a>3、修改操作</h5><p>修改操作指的是将在某个范围内的所有节点的权值更改，支持像线段树一样打标记和下传标记<br>具体见代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">//注：本题要求的是先乘上一个数再加上一个数，所以有两个标记数组</span><br><span class="line">inline void Add_mlt(int p,int v)&#123;</span><br><span class="line">    tree[p].val*=v;</span><br><span class="line">    tree[p].cnt*=v;</span><br><span class="line">    tree[p].mlt*=v;</span><br><span class="line">    tree[p].sum*=v;</span><br><span class="line">&#125;</span><br><span class="line">inline void Add_cnt(int p,int v)&#123;</span><br><span class="line">    tree[p].val+=v;</span><br><span class="line">    tree[p].cnt+=v;</span><br><span class="line">    tree[p].sum+=tree[p].len*v;</span><br><span class="line">&#125;</span><br><span class="line">inline void pushdown(int p)&#123;</span><br><span class="line">    if(tree[p].mlt!=1)&#123;//下传乘标记</span><br><span class="line">        Add_mlt(ls(p),tree[p].mlt);</span><br><span class="line">        Add_mlt(rs(p),tree[p].mlt);</span><br><span class="line">        tree[p].mlt=1;</span><br><span class="line">    &#125;</span><br><span class="line">    if(tree[p].cnt!=0)&#123;//下传加标记</span><br><span class="line">        Add_cnt(ls(p),tree[p].cnt);</span><br><span class="line">        Add_cnt(rs(p),tree[p].cnt);</span><br><span class="line">        tree[p].cnt=0;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">inline void change(int p,int x,int y,int mt,int ct)&#123;//p为当前节点,将第T维(T为全局变量，记录当前处理维度)坐标在x与y之间的数都乘上mt,加上ct</span><br><span class="line">    if(tree[p].Max[T]&lt;x||y&lt;tree[p].Min[T])//如果不在要处理的范围内,退出</span><br><span class="line">        return ;</span><br><span class="line">    if(x&lt;=tree[p].Min[T]&amp;&amp;tree[p].Max[T]&lt;=y)&#123;//如果都在要处理的范围内,就打上乘标记与加标记</span><br><span class="line">        Add_mlt(p,mt);//加乘标记</span><br><span class="line">        Add_cnt(p,ct);//加加标记</span><br><span class="line">        return ;</span><br><span class="line">    &#125;</span><br><span class="line">    pushdown(p);//下传标记</span><br><span class="line">    if(x&lt;=tree[p].v[T]&amp;&amp;tree[p].v[T]&lt;=y)//如果当前点在处理范围内</span><br><span class="line">        tree[p].val=tree[p].val*mt+ct;//处理当前节点</span><br><span class="line">    change(ls(p),x,y,mt,ct);//修改左子树</span><br><span class="line">    change(rs(p),x,y,mt,ct);//修改右子树</span><br><span class="line">    tree[p].sum=tree[ls(p)].sum+tree[rs(p)].sum+tree[p].val;//更新当前节点</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h5 id="5、查询操作"><a href="#5、查询操作" class="headerlink" title="5、查询操作"></a>5、查询操作</h5><p>详见注释<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">inline int ask(int p,int x,int y)&#123;//查询T维x到y的和</span><br><span class="line">    if(tree[p].Max[T]&lt;x||y&lt;tree[p].Min[T])//出范围就return 0</span><br><span class="line">        return 0;</span><br><span class="line">    if(x&lt;=tree[p].Min[T]&amp;&amp;tree[p].Max[T]&lt;=y)//在范围之内就返回和</span><br><span class="line">        return tree[p].sum;</span><br><span class="line">    pushdown(p);//下传标记</span><br><span class="line">    int res=ask(ls(p),x,y)+ask(rs(p),x,y);//加上左右子树</span><br><span class="line">    if(x&lt;=tree[p].v[T]&amp;&amp;tree[p].v[T]&lt;=y)</span><br><span class="line">        res+=tree[p].val;//加上这个点本身</span><br><span class="line">    return res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>至此，kdtree算法的讲解就到此结束，让我们回到原题<br>容易想到可以吧原题中的i到j看作一维，吧$p_i$到$p_j$看作第二维，这样就可以看作是在一个二维平面上进行操作<br>代码(模板)：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">#define F(i,j,n) for(register int i=j;i&lt;=n;i++)</span><br><span class="line">#define INF 0x3f3f3f3f</span><br><span class="line">#define ll long long</span><br><span class="line">#define mem(i,j) memset(i,j,sizeof(i))</span><br><span class="line">using namespace std;</span><br><span class="line">#define Md 536870912</span><br><span class="line">int n,m,T;</span><br><span class="line">inline int read()&#123;</span><br><span class="line">    int datta=0;char chchc=getchar();bool okoko=0;</span><br><span class="line">    while(chchc&lt;&apos;0&apos;||chchc&gt;&apos;9&apos;)&#123;if(chchc==&apos;-&apos;)okoko=1;chchc=getchar();&#125;</span><br><span class="line">    while(chchc&gt;=&apos;0&apos;&amp;&amp;chchc&lt;=&apos;9&apos;)&#123;datta=datta*10+chchc-&apos;0&apos;;chchc=getchar();&#125;</span><br><span class="line">    return okoko?-datta:datta;</span><br><span class="line">&#125;</span><br><span class="line">class kd_tree&#123;//之所以用class是为了装逼</span><br><span class="line">    private:</span><br><span class="line">    public:</span><br><span class="line">    #define ls(p) tree[p].ls</span><br><span class="line">    #define rs(p) tree[p].rs</span><br><span class="line">    int tot,rt;</span><br><span class="line">    struct hahaha&#123;</span><br><span class="line">        int tp,ls,rs,v[2],Max[2],Min[2],val;</span><br><span class="line">        int cnt,mlt,sum,len;</span><br><span class="line">        bool operator&lt;(const hahaha &amp;y)const&#123;</span><br><span class="line">            return v[T]&lt;y.v[T];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;tree[50010];</span><br><span class="line">    inline void Add(int *a,int v)&#123;</span><br><span class="line">        a[0]=a[1]=v;</span><br><span class="line">    &#125;</span><br><span class="line">    inline void updata(int p)&#123;</span><br><span class="line">        tree[p].Min[0]=min(tree[p].v[0],min(tree[ls(p)].Min[0],tree[rs(p)].Min[0]));</span><br><span class="line">        tree[p].Min[1]=min(tree[p].v[1],min(tree[ls(p)].Min[1],tree[rs(p)].Min[1]));</span><br><span class="line">        tree[p].Max[0]=max(tree[p].v[0],max(tree[ls(p)].Max[0],tree[rs(p)].Max[0]));</span><br><span class="line">        tree[p].Max[1]=max(tree[p].v[1],max(tree[ls(p)].Max[1],tree[rs(p)].Max[1]));</span><br><span class="line">    &#125;</span><br><span class="line">    inline int build_tree(int l,int r,int tp)&#123;</span><br><span class="line">        T=tp;</span><br><span class="line">        int mid=((l+r)&gt;&gt;1),p=mid;</span><br><span class="line">        nth_element(tree+l,tree+mid,tree+r+1);</span><br><span class="line">        tree[p].tp=tp;</span><br><span class="line">        tree[p].mlt=1;</span><br><span class="line">        tree[p].len=r-l+1;</span><br><span class="line">        if(l&lt;mid)</span><br><span class="line">            ls(p)=build_tree(l,mid-1,tp^1);</span><br><span class="line">        if(r&gt;mid)</span><br><span class="line">            rs(p)=build_tree(mid+1,r,tp^1);</span><br><span class="line">        updata(p);</span><br><span class="line">        return p;</span><br><span class="line">    &#125;</span><br><span class="line">    inline void init()&#123;</span><br><span class="line">        Add(tree[0].Max,-INF);</span><br><span class="line">        Add(tree[0].Min,INF);</span><br><span class="line">        F(i,1,n)</span><br><span class="line">            tree[i].v[0]=i,tree[i].v[1]=read();</span><br><span class="line">        rt=build_tree(1,tot=n,0);</span><br><span class="line">    &#125;</span><br><span class="line">    inline void Add_mlt(int p,int v)&#123;</span><br><span class="line">        tree[p].val*=v;</span><br><span class="line">        tree[p].cnt*=v;</span><br><span class="line">        tree[p].mlt*=v;</span><br><span class="line">        tree[p].sum*=v;</span><br><span class="line">    &#125;</span><br><span class="line">    inline void Add_cnt(int p,int v)&#123;</span><br><span class="line">        tree[p].val+=v;</span><br><span class="line">        tree[p].cnt+=v;</span><br><span class="line">        tree[p].sum+=tree[p].len*v;</span><br><span class="line">    &#125;</span><br><span class="line">    inline void pushdown(int p)&#123;</span><br><span class="line">        if(tree[p].mlt!=1)&#123;</span><br><span class="line">            Add_mlt(ls(p),tree[p].mlt);</span><br><span class="line">            Add_mlt(rs(p),tree[p].mlt);</span><br><span class="line">            tree[p].mlt=1;</span><br><span class="line">        &#125;</span><br><span class="line">        if(tree[p].cnt!=0)&#123;</span><br><span class="line">            Add_cnt(ls(p),tree[p].cnt);</span><br><span class="line">            Add_cnt(rs(p),tree[p].cnt);</span><br><span class="line">            tree[p].cnt=0;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    inline void change(int p,int x,int y,int mt,int ct)&#123;</span><br><span class="line">        if(tree[p].Max[T]&lt;x||y&lt;tree[p].Min[T])</span><br><span class="line">            return ;</span><br><span class="line">        if(x&lt;=tree[p].Min[T]&amp;&amp;tree[p].Max[T]&lt;=y)&#123;</span><br><span class="line">            Add_mlt(p,mt);</span><br><span class="line">            Add_cnt(p,ct);</span><br><span class="line">            return ;</span><br><span class="line">        &#125;</span><br><span class="line">        pushdown(p);</span><br><span class="line">        if(x&lt;=tree[p].v[T]&amp;&amp;tree[p].v[T]&lt;=y)</span><br><span class="line">            tree[p].val=tree[p].val*mt+ct;</span><br><span class="line">        change(ls(p),x,y,mt,ct);</span><br><span class="line">        change(rs(p),x,y,mt,ct);</span><br><span class="line">        tree[p].sum=tree[ls(p)].sum+tree[rs(p)].sum+tree[p].val;</span><br><span class="line">    &#125;</span><br><span class="line">    inline int ask(int p,int x,int y)&#123;</span><br><span class="line">        if(tree[p].Max[T]&lt;x||y&lt;tree[p].Min[T])</span><br><span class="line">            return 0;</span><br><span class="line">        if(x&lt;=tree[p].Min[T]&amp;&amp;tree[p].Max[T]&lt;=y)</span><br><span class="line">            return tree[p].sum;</span><br><span class="line">        pushdown(p);</span><br><span class="line">        int res=ask(ls(p),x,y)+ask(rs(p),x,y);</span><br><span class="line">        if(x&lt;=tree[p].v[T]&amp;&amp;tree[p].v[T]&lt;=y)</span><br><span class="line">            res+=tree[p].val;</span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;K;</span><br><span class="line">int main()&#123;</span><br><span class="line">    n=read();m=read();</span><br><span class="line">    K.init();</span><br><span class="line">    F(i,1,m)&#123;</span><br><span class="line">        int opt=read(),l=read(),r=read(),x,y;</span><br><span class="line">        if(opt&lt;=1)&#123;</span><br><span class="line">            x=read();y=read();</span><br><span class="line">            T=opt;</span><br><span class="line">            K.change(K.rt,l,r,x,y);</span><br><span class="line">        &#125;</span><br><span class="line">        if(opt&gt;=2)&#123;</span><br><span class="line">            T=opt-2;</span><br><span class="line">            printf(&quot;%d\n&quot;,K.ask(K.rt,l,r)&amp;(Md-1));//不这么写会T</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/23/浅谈斯坦纳树 && [WC2008]游览计划题解/" class="archive-article-date">
-  	<time datetime="2019-03-22T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/23/浅谈斯坦纳树 && [WC2008]游览计划题解/">浅谈斯坦纳树 &amp;&amp; [WC2008]游览计划题解</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
-        		</li>
-      		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
         		</li>
@@ -249,19 +224,123 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/23/浅谈kdtree/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2019/03/23/莫比乌斯反演推导即μ函数的证明/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          莫比乌斯反演推导即μ函数的证明
+        
+      </div>
+    </a>
   
   
-    </div></section>
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Ⅰ、抛出问题"><span class="toc-number">1.</span> <span class="toc-text">Ⅰ、抛出问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Description"><span class="toc-number">1.1.</span> <span class="toc-text">Description</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Input"><span class="toc-number">1.1.1.</span> <span class="toc-text">Input</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Output"><span class="toc-number">1.1.2.</span> <span class="toc-text">Output</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sample-Input"><span class="toc-number">1.1.3.</span> <span class="toc-text">Sample Input</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sample-Output"><span class="toc-number">1.1.4.</span> <span class="toc-text">Sample Output</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Source"><span class="toc-number">1.1.5.</span> <span class="toc-text">Source</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Ⅱ、分析问题"><span class="toc-number">2.</span> <span class="toc-text">Ⅱ、分析问题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、维护的数据"><span class="toc-number">2.0.0.1.</span> <span class="toc-text">1、维护的数据</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2、建树"><span class="toc-number">2.0.0.1.1.</span> <span class="toc-text">2、建树</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3、修改操作"><span class="toc-number">2.0.0.1.2.</span> <span class="toc-text">3、修改操作</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5、查询操作"><span class="toc-number">2.0.0.1.3.</span> <span class="toc-text">5、查询操作</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -284,9 +363,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,

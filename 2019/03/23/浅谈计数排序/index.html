@@ -6,15 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 题解 | _____hzf_____</title>
+  <title>浅谈计数排序 | _____hzf_____</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="_____hzf_____">
-<meta property="og:url" content="http://yoursite.com/tags/题解/index.html">
+  <meta name="description" content="计数排序是一种非基于比较的排序算法，本文主要介绍计数排序的思想及代码实现">
+<meta name="keywords" content="算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浅谈计数排序">
+<meta property="og:url" content="http://yoursite.com/2019/03/23/浅谈计数排序/index.html">
 <meta property="og:site_name" content="_____hzf_____">
+<meta property="og:description" content="计数排序是一种非基于比较的排序算法，本文主要介绍计数排序的思想及代码实现">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://i.loli.net/2019/02/11/5c6163f2d07a2.png">
+<meta property="og:image" content="https://i.loli.net/2019/02/11/5c61801890109.png">
+<meta property="og:image" content="https://i.loli.net/2019/02/11/5c61818dde928.png">
+<meta property="og:updated_time" content="2019-03-30T10:57:56.383Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="_____hzf_____">
+<meta name="twitter:title" content="浅谈计数排序">
+<meta name="twitter:description" content="计数排序是一种非基于比较的排序算法，本文主要介绍计数排序的思想及代码实现">
+<meta name="twitter:image" content="https://i.loli.net/2019/02/11/5c6163f2d07a2.png">
   
     <link rel="alternative" href="/atom.xml" title="_____hzf_____" type="application/atom+xml">
   
@@ -166,82 +175,40 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-浅谈计数排序" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/23/USACO13NOV 没有找零No Change 题解/" class="archive-article-date">
-  	<time datetime="2019-03-22T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-23</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/23/USACO13NOV 没有找零No Change 题解/">USACO13NOV 没有找零No Change 题解</a>
+    <h1 class="article-title" itemprop="name">
+      浅谈计数排序
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/03/23/浅谈计数排序/" class="archive-article-date">
+  	<time datetime="2019-03-22T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>计数排序是一种非基于比较的排序算法，本文主要介绍计数排序的思想及代码实现<br><a id="more"></a></p>
+<h1 id="Ⅱ、分析问题"><a href="#Ⅱ、分析问题" class="headerlink" title="Ⅱ、分析问题"></a><strong>Ⅱ、分析问题</strong></h1><p>对于数组$a_1\sim a_n$，将其从小至大排序<br>步骤：<br>1、处理出数据中每个数出现的频率，放入数组$b$中<br>2、处理处数据频率表的前缀形式，此时第$i$个位置的数据表示$a$数组的全部数据中，小于等于$a_i$的数量（包括a_i本身）<br>3、依照前缀表处理出排好序的数组<br>例如，现在有数组$a=\begin{Bmatrix}7,3,2,2,6,3,7,9,8,9\end{Bmatrix}$，用计数排序将其排序<br><img src="https://i.loli.net/2019/02/11/5c6163f2d07a2.png" alt><br>处理出$a$数组的频次表<br><img src="https://i.loli.net/2019/02/11/5c61801890109.png" alt><br>处理出b数组的前缀和<br><img src="https://i.loli.net/2019/02/11/5c61818dde928.png" alt><br>此时处理出前缀和之后，可以发现，$i$对应的$a_i$，恰好为$i$对应在排好序中的序列的最后一位的编号（或者没有）<br>于是代码就可以这么写：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">#define F(i,j,n) for(register int i=j;i&lt;=n;i++)</span><br><span class="line">#define INF 0x3f3f3f3f</span><br><span class="line">#define ll long long</span><br><span class="line">#define mem(i,j) memset(i,j,sizeof(i))</span><br><span class="line">using namespace std;</span><br><span class="line">int n,m,a[100010],b[100010],c[100010];</span><br><span class="line">inline int read()&#123;</span><br><span class="line">    int datta=0;char chchc=getchar();bool okoko=0;</span><br><span class="line">    while(chchc&lt;&apos;0&apos;||chchc&gt;&apos;9&apos;)&#123;if(chchc==&apos;-&apos;)okoko=1;chchc=getchar();&#125;</span><br><span class="line">    while(chchc&gt;=&apos;0&apos;&amp;&amp;chchc&lt;=&apos;9&apos;)&#123;datta=datta*10+chchc-&apos;0&apos;;chchc=getchar();&#125;</span><br><span class="line">    return okoko?-datta:datta;</span><br><span class="line">&#125;</span><br><span class="line">int main()&#123;</span><br><span class="line">	n=read();m=read();</span><br><span class="line">	F(i,1,n)</span><br><span class="line">		a[i]=read(),b[a[i]]++;//b数组用来处理频率</span><br><span class="line">	F(i,1,m)</span><br><span class="line">		b[i]+=b[i-1];//处理前缀和</span><br><span class="line">	F(i,1,n)</span><br><span class="line">		c[b[a[i]]--]=a[i];//将a[i]放入对应c数组的位置中，并将频率减一，可以手动模拟下</span><br><span class="line">	F(i,1,n)</span><br><span class="line">		printf(&quot;%d &quot;,c[i]);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/23/浅谈斯坦纳树 && [WC2008]游览计划题解/" class="archive-article-date">
-  	<time datetime="2019-03-22T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/23/浅谈斯坦纳树 && [WC2008]游览计划题解/">浅谈斯坦纳树 &amp;&amp; [WC2008]游览计划题解</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
-        		</li>
-      		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
         		</li>
@@ -249,19 +216,128 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/23/浅谈计数排序/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2019/03/23/浅谈斯坦纳树 && [WC2008]游览计划题解/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          浅谈斯坦纳树 &amp;&amp; [WC2008]游览计划题解
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2019/03/23/莫比乌斯反演推导即μ函数的证明/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">莫比乌斯反演推导即μ函数的证明</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Ⅱ、分析问题"><span class="toc-number">1.</span> <span class="toc-text">Ⅱ、分析问题</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -284,9 +360,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
