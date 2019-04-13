@@ -72,7 +72,7 @@
     root: '/',
     scheme: 'Mist',
     version: '7.1.0',
-    sidebar: {"position":"right","display":"always","offset":12,"onmobile":false,"dimmer":false},
+    sidebar: {"position":"left","display":"always","offset":12,"onmobile":false,"dimmer":false},
     back2top: true,
     back2top_sidebar: false,
     fancybox: false,
@@ -179,7 +179,7 @@
     
   
 
-  <div class="container sidebar-position-right page-post-detail">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -408,8 +408,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/23/浅谈manacher回文串算法/" rel="next" title="浅谈manacher回文串算法">
-                <i class="fa fa-chevron-left"></i> 浅谈manacher回文串算法
+              <a href="/2019/03/23/USACO13NOV 没有找零No Change 题解/" rel="next" title="USACO13NOV 没有找零No Change 题解">
+                <i class="fa fa-chevron-left"></i> USACO13NOV 没有找零No Change 题解
               </a>
             
           </div>
@@ -418,8 +418,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/03/23/字符串算法模板合集/" rel="prev" title="字符串算法模板合集">
-                字符串算法模板合集 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/03/23/浅谈KMP字符串匹配算法/" rel="prev" title="浅谈KMP字符串匹配算法">
+                浅谈KMP字符串匹配算法 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -754,6 +754,8 @@
       <div class="back-to-top">
         <i class="fa fa-arrow-up"></i>
         
+          <span id="scrollpercent"><span>0</span>%</span>
+        
       </div>
     
 
@@ -853,20 +855,8 @@
 
 
   
-
-  
-
-  
-
-  
-
-
-  
-
-
-  
-
-
+  <script src="/js/js.cookie.js?v=7.1.0"></script>
+  <script src="/js/scroll-cookie.js?v=7.1.0"></script>
 
 
   
@@ -875,9 +865,14 @@
 
   
 
-  
 
   
+
+
+  
+
+
+
 
   
 
@@ -892,6 +887,48 @@
   
 
   
+
+  
+
+  
+
+  
+
+  
+
+  
+<script>
+  $('.highlight').each(function(i, e) {
+    var $wrap = $('<div>').addClass('highlight-wrap');
+    $(e).after($wrap);
+    $wrap.append($('<button>').addClass('copy-btn').append('Kopieren').on('click', function(e) {
+      var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+        return $(e).text();
+      }).toArray().join('\n');
+      var ta = document.createElement('textarea');
+      var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+      ta.style.top = yPosition + 'px'; // Prevent page scroll
+      ta.style.position = 'absolute';
+      ta.style.opacity = '0';
+      ta.readOnly = true;
+      ta.value = code;
+      document.body.appendChild(ta);
+      ta.select();
+      ta.setSelectionRange(0, code.length);
+      ta.readOnly = false;
+      var result = document.execCommand('copy');
+      
+      ta.blur(); // For iOS
+      $(this).blur();
+    })).on('mouseleave', function(e) {
+      var $b = $(this).find('.copy-btn');
+      setTimeout(function() {
+        $b.text('Kopieren');
+      }, 300);
+    }).append(e);
+  })
+</script>
+
 
   
 
