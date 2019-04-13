@@ -96,21 +96,21 @@
 
 
 
-  <meta name="description" content="计数排序是一种非基于比较的排序算法，本文主要介绍计数排序的思想及代码实现">
+  <meta name="description" content="计数排序是一种非基于比较的排序算法，本文主要介绍计数排序的思想及代码实现 Ⅱ、分析问题对于数组$a_1\sim a_n$，将其从小至大排序步骤：1、处理出数据中每个数出现的频率，放入数组$b$中2、处理处数据频率表的前缀形式，此时第$i$个位置的数据表示$a$数组的全部数据中，小于等于$a_i$的数量（包括a_i本身）3、依照前缀表处理出排好序的数组例如，现在有数组$a=\begin{Bmatri">
 <meta name="keywords" content="算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="浅谈计数排序">
 <meta property="og:url" content="http://yoursite.com/2019/03/23/浅谈计数排序/index.html">
 <meta property="og:site_name" content="_____hzf_____">
-<meta property="og:description" content="计数排序是一种非基于比较的排序算法，本文主要介绍计数排序的思想及代码实现">
+<meta property="og:description" content="计数排序是一种非基于比较的排序算法，本文主要介绍计数排序的思想及代码实现 Ⅱ、分析问题对于数组$a_1\sim a_n$，将其从小至大排序步骤：1、处理出数据中每个数出现的频率，放入数组$b$中2、处理处数据频率表的前缀形式，此时第$i$个位置的数据表示$a$数组的全部数据中，小于等于$a_i$的数量（包括a_i本身）3、依照前缀表处理出排好序的数组例如，现在有数组$a=\begin{Bmatri">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.loli.net/2019/02/11/5c6163f2d07a2.png">
 <meta property="og:image" content="https://i.loli.net/2019/02/11/5c61801890109.png">
 <meta property="og:image" content="https://i.loli.net/2019/02/11/5c61818dde928.png">
-<meta property="og:updated_time" content="2019-03-30T10:57:56.383Z">
+<meta property="og:updated_time" content="2019-04-13T14:00:06.752Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅谈计数排序">
-<meta name="twitter:description" content="计数排序是一种非基于比较的排序算法，本文主要介绍计数排序的思想及代码实现">
+<meta name="twitter:description" content="计数排序是一种非基于比较的排序算法，本文主要介绍计数排序的思想及代码实现 Ⅱ、分析问题对于数组$a_1\sim a_n$，将其从小至大排序步骤：1、处理出数据中每个数出现的频率，放入数组$b$中2、处理处数据频率表的前缀形式，此时第$i$个位置的数据表示$a$数组的全部数据中，小于等于$a_i$的数量（包括a_i本身）3、依照前缀表处理出排好序的数组例如，现在有数组$a=\begin{Bmatri">
 <meta name="twitter:image" content="https://i.loli.net/2019/02/11/5c6163f2d07a2.png">
 
 
@@ -364,7 +364,7 @@
                 
                   <span class="post-meta-item-text">Bearbeitet am</span>
                 
-                <time title="Geändert am: 2019-03-30 18:57:56" itemprop="dateModified" datetime="2019-03-30T18:57:56+08:00">2019-03-30</time>
+                <time title="Geändert am: 2019-04-13 22:00:06" itemprop="dateModified" datetime="2019-04-13T22:00:06+08:00">2019-04-13</time>
               
             
           </span>
@@ -398,7 +398,7 @@
       
 
       
-        <p>计数排序是一种非基于比较的排序算法，本文主要介绍计数排序的思想及代码实现<br><a id="more"></a></p>
+        <p>计数排序是一种非基于比较的排序算法，本文主要介绍计数排序的思想及代码实现</p>
 <h1 id="Ⅱ、分析问题"><a href="#Ⅱ、分析问题" class="headerlink" title="Ⅱ、分析问题"></a><strong>Ⅱ、分析问题</strong></h1><p>对于数组$a_1\sim a_n$，将其从小至大排序<br>步骤：<br>1、处理出数据中每个数出现的频率，放入数组$b$中<br>2、处理处数据频率表的前缀形式，此时第$i$个位置的数据表示$a$数组的全部数据中，小于等于$a_i$的数量（包括a_i本身）<br>3、依照前缀表处理出排好序的数组<br>例如，现在有数组$a=\begin{Bmatrix}7,3,2,2,6,3,7,9,8,9\end{Bmatrix}$，用计数排序将其排序<br><img src="https://i.loli.net/2019/02/11/5c6163f2d07a2.png" alt><br>处理出$a$数组的频次表<br><img src="https://i.loli.net/2019/02/11/5c61801890109.png" alt><br>处理出b数组的前缀和<br><img src="https://i.loli.net/2019/02/11/5c61818dde928.png" alt><br>此时处理出前缀和之后，可以发现，$i$对应的$a_i$，恰好为$i$对应在排好序中的序列的最后一位的编号（或者没有）<br>于是代码就可以这么写：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">#define F(i,j,n) for(register int i=j;i&lt;=n;i++)</span><br><span class="line">#define INF 0x3f3f3f3f</span><br><span class="line">#define ll long long</span><br><span class="line">#define mem(i,j) memset(i,j,sizeof(i))</span><br><span class="line">using namespace std;</span><br><span class="line">int n,m,a[100010],b[100010],c[100010];</span><br><span class="line">inline int read()&#123;</span><br><span class="line">    int datta=0;char chchc=getchar();bool okoko=0;</span><br><span class="line">    while(chchc&lt;&apos;0&apos;||chchc&gt;&apos;9&apos;)&#123;if(chchc==&apos;-&apos;)okoko=1;chchc=getchar();&#125;</span><br><span class="line">    while(chchc&gt;=&apos;0&apos;&amp;&amp;chchc&lt;=&apos;9&apos;)&#123;datta=datta*10+chchc-&apos;0&apos;;chchc=getchar();&#125;</span><br><span class="line">    return okoko?-datta:datta;</span><br><span class="line">&#125;</span><br><span class="line">int main()&#123;</span><br><span class="line">	n=read();m=read();</span><br><span class="line">	F(i,1,n)</span><br><span class="line">		a[i]=read(),b[a[i]]++;//b数组用来处理频率</span><br><span class="line">	F(i,1,m)</span><br><span class="line">		b[i]+=b[i-1];//处理前缀和</span><br><span class="line">	F(i,1,n)</span><br><span class="line">		c[b[a[i]]--]=a[i];//将a[i]放入对应c数组的位置中，并将频率减一，可以手动模拟下</span><br><span class="line">	F(i,1,n)</span><br><span class="line">		printf(&quot;%d &quot;,c[i]);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       

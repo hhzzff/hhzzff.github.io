@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="Ⅰ、预备知识整体二分？？？ Ⅱ、抛出问题我们先来看一道洛谷的模板题">
+  <meta name="description" content="Ⅰ、预备知识整体二分？？？ Ⅱ、抛出问题我们先来看一道洛谷的模板题 题目背景这是一道模板题可以使用bitset(不会)，CDQ分治，K-DTree(不会)等方式解决。 题目描述有$n$个元素，第$i$个元素有$a_i$、$b_i$、$c_i$三个属性，设$f(i)$表示满足$a_j\leq a_i$且$b_j\leq b_i$且$c_j\leq c_i$的$j$的数量。对于$d\in[0, n)$">
 <meta name="keywords" content="算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="浅谈CDQ分治">
 <meta property="og:url" content="http://yoursite.com/2019/03/23/浅谈CDQ分治/index.html">
 <meta property="og:site_name" content="_____hzf_____">
-<meta property="og:description" content="Ⅰ、预备知识整体二分？？？ Ⅱ、抛出问题我们先来看一道洛谷的模板题">
+<meta property="og:description" content="Ⅰ、预备知识整体二分？？？ Ⅱ、抛出问题我们先来看一道洛谷的模板题 题目背景这是一道模板题可以使用bitset(不会)，CDQ分治，K-DTree(不会)等方式解决。 题目描述有$n$个元素，第$i$个元素有$a_i$、$b_i$、$c_i$三个属性，设$f(i)$表示满足$a_j\leq a_i$且$b_j\leq b_i$且$c_j\leq c_i$的$j$的数量。对于$d\in[0, n)$">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-30T10:59:02.270Z">
+<meta property="og:updated_time" content="2019-04-13T13:59:49.921Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅谈CDQ分治">
-<meta name="twitter:description" content="Ⅰ、预备知识整体二分？？？ Ⅱ、抛出问题我们先来看一道洛谷的模板题">
+<meta name="twitter:description" content="Ⅰ、预备知识整体二分？？？ Ⅱ、抛出问题我们先来看一道洛谷的模板题 题目背景这是一道模板题可以使用bitset(不会)，CDQ分治，K-DTree(不会)等方式解决。 题目描述有$n$个元素，第$i$个元素有$a_i$、$b_i$、$c_i$三个属性，设$f(i)$表示满足$a_j\leq a_i$且$b_j\leq b_i$且$c_j\leq c_i$的$j$的数量。对于$d\in[0, n)$">
 
 
 
@@ -360,7 +360,7 @@
                 
                   <span class="post-meta-item-text">Bearbeitet am</span>
                 
-                <time title="Geändert am: 2019-03-30 18:59:02" itemprop="dateModified" datetime="2019-03-30T18:59:02+08:00">2019-03-30</time>
+                <time title="Geändert am: 2019-04-13 21:59:49" itemprop="dateModified" datetime="2019-04-13T21:59:49+08:00">2019-04-13</time>
               
             
           </span>
@@ -395,7 +395,7 @@
 
       
         <h1 id="Ⅰ、预备知识"><a href="#Ⅰ、预备知识" class="headerlink" title="Ⅰ、预备知识"></a><strong>Ⅰ、预备知识</strong></h1><p><del>整体二分？？？</del></p>
-<h1 id="Ⅱ、抛出问题"><a href="#Ⅱ、抛出问题" class="headerlink" title="Ⅱ、抛出问题"></a><strong>Ⅱ、抛出问题</strong></h1><p>我们先来看一道洛谷的模板题<br><a id="more"></a></p>
+<h1 id="Ⅱ、抛出问题"><a href="#Ⅱ、抛出问题" class="headerlink" title="Ⅱ、抛出问题"></a><strong>Ⅱ、抛出问题</strong></h1><p>我们先来看一道洛谷的模板题</p>
 <h2 id="题目背景"><a href="#题目背景" class="headerlink" title="题目背景"></a><strong>题目背景</strong></h2><p>这是一道模板题<br>可以使用<del>bitset</del>(不会)，CDQ分治，<del>K-DTree</del>(不会)等方式解决。</p>
 <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a><strong>题目描述</strong></h2><p>有$n$个元素，第$i$个元素有$a_i$、$b_i$、$c_i$三个属性，设$f(i)$表示满足$a_j\leq a_i$且$b_j\leq b_i$且$c_j\leq c_i$的$j$的数量。<br>对于$d\in[0, n)$，求$f(i)=d$的数量</p>
 <h3 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a><strong>输入输出格式</strong></h3><h4 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a><strong>输入格式：</strong></h4><p>第一行两个整数$n、k$，分别表示元素数量和最大属性值。<br>之后$n$行，每行三个整数$a_i$、$b_i$、$c_i$，分别表示三个属性值。</p>
@@ -440,8 +440,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/23/浅谈斯坦纳树 && [WC2008]游览计划题解/" rel="next" title="浅谈斯坦纳树 && [WC2008]游览计划题解">
-                <i class="fa fa-chevron-left"></i> 浅谈斯坦纳树 && [WC2008]游览计划题解
+              <a href="/2019/03/23/[置顶]博客说明/" rel="next" title="【置顶】博客说明">
+                <i class="fa fa-chevron-left"></i> 【置顶】博客说明
               </a>
             
           </div>
@@ -450,8 +450,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/03/23/浅谈manacher回文串算法/" rel="prev" title="浅谈manacher回文串算法">
-                浅谈manacher回文串算法 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/03/23/浅谈KMP字符串匹配算法/" rel="prev" title="浅谈KMP字符串匹配算法">
+                浅谈KMP字符串匹配算法 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

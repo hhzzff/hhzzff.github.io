@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="题目描述求长度为$n$且仅包含小写英文字母且循环节长度恰为$n$的字符串的个数。意思是求一个长度为$n$的字符串的个数，它的任意一个子串重复若干次都不能和原串相等设$f(n)$为长度为$n$的字符串个数，设$g(n)$为题目所求答案的个数">
+  <meta name="description" content="题目描述求长度为$n$且仅包含小写英文字母且循环节长度恰为$n$的字符串的个数。意思是求一个长度为$n$的字符串的个数，它的任意一个子串重复若干次都不能和原串相等设$f(n)$为长度为$n$的字符串个数，设$g(n)$为题目所求答案的个数显然 f(n)=26^n,f(n)=\sum_{d\mid n}g(d)第一个很显然第二个意思是 任意一个长度为$d(d\mid n)$的串，重复$\frac{n">
 <meta name="keywords" content="证明">
 <meta property="og:type" content="article">
 <meta property="og:title" content="莫比乌斯反演推导即μ函数的证明">
 <meta property="og:url" content="http://yoursite.com/2019/03/23/莫比乌斯反演推导即μ函数的证明/index.html">
 <meta property="og:site_name" content="_____hzf_____">
-<meta property="og:description" content="题目描述求长度为$n$且仅包含小写英文字母且循环节长度恰为$n$的字符串的个数。意思是求一个长度为$n$的字符串的个数，它的任意一个子串重复若干次都不能和原串相等设$f(n)$为长度为$n$的字符串个数，设$g(n)$为题目所求答案的个数">
+<meta property="og:description" content="题目描述求长度为$n$且仅包含小写英文字母且循环节长度恰为$n$的字符串的个数。意思是求一个长度为$n$的字符串的个数，它的任意一个子串重复若干次都不能和原串相等设$f(n)$为长度为$n$的字符串个数，设$g(n)$为题目所求答案的个数显然 f(n)=26^n,f(n)=\sum_{d\mid n}g(d)第一个很显然第二个意思是 任意一个长度为$d(d\mid n)$的串，重复$\frac{n">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-23T10:55:16.083Z">
+<meta property="og:updated_time" content="2019-04-13T13:59:45.346Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="莫比乌斯反演推导即μ函数的证明">
-<meta name="twitter:description" content="题目描述求长度为$n$且仅包含小写英文字母且循环节长度恰为$n$的字符串的个数。意思是求一个长度为$n$的字符串的个数，它的任意一个子串重复若干次都不能和原串相等设$f(n)$为长度为$n$的字符串个数，设$g(n)$为题目所求答案的个数">
+<meta name="twitter:description" content="题目描述求长度为$n$且仅包含小写英文字母且循环节长度恰为$n$的字符串的个数。意思是求一个长度为$n$的字符串的个数，它的任意一个子串重复若干次都不能和原串相等设$f(n)$为长度为$n$的字符串个数，设$g(n)$为题目所求答案的个数显然 f(n)=26^n,f(n)=\sum_{d\mid n}g(d)第一个很显然第二个意思是 任意一个长度为$d(d\mid n)$的串，重复$\frac{n">
 
 
 
@@ -343,12 +343,24 @@
                 
               
 
-              <time title="Erstellt: 2019-03-23 00:00:00 / Geändert am: 18:55:16" itemprop="dateCreated datePublished" datetime="2019-03-23T00:00:00+08:00">2019-03-23</time>
+              <time title="Erstellt: 2019-03-23 00:00:00" itemprop="dateCreated datePublished" datetime="2019-03-23T00:00:00+08:00">2019-03-23</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Bearbeitet am</span>
+                
+                <time title="Geändert am: 2019-04-13 21:59:45" itemprop="dateModified" datetime="2019-04-13T21:59:45+08:00">2019-04-13</time>
               
             
           </span>
@@ -382,7 +394,7 @@
       
 
       
-        <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a><strong>题目描述</strong></h3><p>求长度为$n$且仅包含小写英文字母且循环节长度恰为$n$的字符串的个数。<br>意思是求一个长度为$n$的字符串的个数，它的任意一个子串重复若干次都不能和原串相等<br>设$f(n)$为长度为$n$的字符串个数，设$g(n)$为题目所求答案的个数<br><a id="more"></a><br>显然</p>
+        <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a><strong>题目描述</strong></h3><p>求长度为$n$且仅包含小写英文字母且循环节长度恰为$n$的字符串的个数。<br>意思是求一个长度为$n$的字符串的个数，它的任意一个子串重复若干次都不能和原串相等<br>设$f(n)$为长度为$n$的字符串个数，设$g(n)$为题目所求答案的个数<br>显然</p>
 <script type="math/tex; mode=display">f(n)=26^n,f(n)=\sum_{d\mid n}g(d)</script><p>第一个很显然<br>第二个意思是 任意一个长度为$d(d\mid n)$的串，重复$\frac{n}{d}$次的和，就是长度为$n$的字符串的个数<br>又设</p>
 <script type="math/tex; mode=display">\sum_{d\mid n}\mu(d)=[n=1]</script><p>$[n=1]$的意思为当$n=1$时，表达式值为$1$，否则为$0$<br>因为</p>
 <script type="math/tex; mode=display">g(n)=\sum_{m\mid n}[\frac{n}{m}=1]g(m)</script><p>当表达式为真时，$n=m$，$g(n)=g(m)$<br>将$\sum_{d\mid n}\mu(d)=[n=1]$代入</p>
@@ -444,8 +456,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/03/23/浅谈斜率优化dp/" rel="prev" title="浅谈斜率优化dp">
-                浅谈斜率优化dp <i class="fa fa-chevron-right"></i>
+              <a href="/2019/03/23/浅谈斯坦纳树 && [WC2008]游览计划题解/" rel="prev" title="浅谈斯坦纳树 && [WC2008]游览计划题解">
+                浅谈斯坦纳树 && [WC2008]游览计划题解 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
