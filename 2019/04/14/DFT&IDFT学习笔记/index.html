@@ -128,20 +128,18 @@
 
 
 
-  <meta name="description" content="Ⅰ、预备知识$KMP$，全称$Knuth-Morris-Pratt$算法，可以实现高效搜索一个模式串P(长为m)在文本串S(长为n）中出现的位置，其核心是处理$next$数组，预处理模式串失配后将匹配的位置，从而实现高效搜索普通的模式串搜索，是暴力一位一位枚举$S[i]$与$P[j]$是否相等，不相等则往后移一位，重新匹配代码大概长这样：1234567891011inline void check">
+  <meta name="description" content="DFT:   多项式定义:\sum_{i=0}^n a_i x^i\\ 系数表示法:f(x)=\sum_{i=0}^n a_i x^i\\ 点值表示法:\{(x_0,f(x_0)),(x_1,f(x_1)),\dots,(x_n,f(x_n))\}  i^2=-1,i=\sqrt{-1}\\ 解方程x^n=1,n个根\\ 欧拉公式e^{\pi i}=-1\\ e^{2\pi i}=1=x^n\\">
 <meta name="keywords" content="算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="浅谈KMP字符串匹配算法">
-<meta property="og:url" content="http://yoursite.com/2019/03/23/浅谈KMP字符串匹配算法/index.html">
+<meta property="og:title" content="DFT&amp;IDFT学习笔记">
+<meta property="og:url" content="http://yoursite.com/2019/04/14/DFT&IDFT学习笔记/index.html">
 <meta property="og:site_name" content="_____hzf_____">
-<meta property="og:description" content="Ⅰ、预备知识$KMP$，全称$Knuth-Morris-Pratt$算法，可以实现高效搜索一个模式串P(长为m)在文本串S(长为n）中出现的位置，其核心是处理$next$数组，预处理模式串失配后将匹配的位置，从而实现高效搜索普通的模式串搜索，是暴力一位一位枚举$S[i]$与$P[j]$是否相等，不相等则往后移一位，重新匹配代码大概长这样：1234567891011inline void check">
+<meta property="og:description" content="DFT:   多项式定义:\sum_{i=0}^n a_i x^i\\ 系数表示法:f(x)=\sum_{i=0}^n a_i x^i\\ 点值表示法:\{(x_0,f(x_0)),(x_1,f(x_1)),\dots,(x_n,f(x_n))\}  i^2=-1,i=\sqrt{-1}\\ 解方程x^n=1,n个根\\ 欧拉公式e^{\pi i}=-1\\ e^{2\pi i}=1=x^n\\">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://i.loli.net/2019/01/05/5c2f8b101e230.png">
-<meta property="og:updated_time" content="2019-04-13T13:59:58.451Z">
+<meta property="og:updated_time" content="2019-04-14T12:31:24.714Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="浅谈KMP字符串匹配算法">
-<meta name="twitter:description" content="Ⅰ、预备知识$KMP$，全称$Knuth-Morris-Pratt$算法，可以实现高效搜索一个模式串P(长为m)在文本串S(长为n）中出现的位置，其核心是处理$next$数组，预处理模式串失配后将匹配的位置，从而实现高效搜索普通的模式串搜索，是暴力一位一位枚举$S[i]$与$P[j]$是否相等，不相等则往后移一位，重新匹配代码大概长这样：1234567891011inline void check">
-<meta name="twitter:image" content="https://i.loli.net/2019/01/05/5c2f8b101e230.png">
+<meta name="twitter:title" content="DFT&amp;IDFT学习笔记">
+<meta name="twitter:description" content="DFT:   多项式定义:\sum_{i=0}^n a_i x^i\\ 系数表示法:f(x)=\sum_{i=0}^n a_i x^i\\ 点值表示法:\{(x_0,f(x_0)),(x_1,f(x_1)),\dots,(x_n,f(x_n))\}  i^2=-1,i=\sqrt{-1}\\ 解方程x^n=1,n个根\\ 欧拉公式e^{\pi i}=-1\\ e^{2\pi i}=1=x^n\\">
 
 
 
@@ -149,7 +147,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/03/23/浅谈KMP字符串匹配算法/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/14/DFT&IDFT学习笔记/">
 
 
 
@@ -159,7 +157,7 @@
   };
 </script>
 
-  <title>浅谈KMP字符串匹配算法 | _____hzf_____</title>
+  <title>DFT&IDFT学习笔记 | _____hzf_____</title>
   
 
 
@@ -433,7 +431,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/23/浅谈KMP字符串匹配算法/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/14/DFT&IDFT学习笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="_____hzf_____">
@@ -450,7 +448,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">浅谈KMP字符串匹配算法
+          <h1 class="post-title" itemprop="name headline">DFT&IDFT学习笔记
 
               
             
@@ -476,24 +474,12 @@
                 
               
 
-              <time title="Created: 2019-03-23 00:00:00" itemprop="dateCreated datePublished" datetime="2019-03-23T00:00:00+08:00">2019-03-23</time>
+              <time title="Created: 2019-04-14 00:00:00 / Modified: 20:31:24" itemprop="dateCreated datePublished" datetime="2019-04-14T00:00:00+08:00">2019-04-14</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-04-13 21:59:58" itemprop="dateModified" datetime="2019-04-13T21:59:58+08:00">2019-04-13</time>
               
             
           </span>
@@ -527,9 +513,208 @@
       
 
       
-        <h1 id="Ⅰ、预备知识"><a href="#Ⅰ、预备知识" class="headerlink" title="Ⅰ、预备知识"></a><strong>Ⅰ、预备知识</strong></h1><p>$KMP$，全称$Knuth-Morris-Pratt$算法，可以实现高效搜索一个<strong>模式串P(长为m)</strong>在<strong>文本串S(长为n）</strong>中出现的位置，其核心是处理$next$数组，预处理模式串失配后将匹配的位置，从而实现高效搜索<br>普通的模式串搜索，是暴力一位一位枚举$S[i]$与$P[j]$是否相等，不相等则往后移一位，重新匹配<br>代码大概长这样：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">inline void check(char *p,char *s)&#123;</span><br><span class="line">    int i=1,j=1,lst=1;</span><br><span class="line">    while(1)&#123;</span><br><span class="line">        if(j==m+1)</span><br><span class="line">            return lst;</span><br><span class="line">        if(s[i]==p[j])</span><br><span class="line">            i++,j++;</span><br><span class="line">        else</span><br><span class="line">            j=1,i=++lst;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>很明显，这种写法做了许多无用功，一些显然无法匹配的段也要$O(m)$去搜索。最坏情况下，这种写法可以被卡成$O(n\times m)$<br>于是，$kmp$算法诞生了<br>$kmp$的核心思想为不一位一位暴力匹配，而是通过Next数组大大减少匹配数量<br>Next数组表示什么呢？<br>设$s_{i\ldots j}$表示字符串$s$的第$i$位到第$j$位，i表示文本串已经处理了多少点，j表示模式串已经匹配了多少点<br>Next数组表示当$s1[i+1]!=s2[j+1]$时，即模式串与文本串下一位失配时，j指针要去往的位置(s1表示文本串,s2表示模式串)<br><img src="https://i.loli.net/2019/01/05/5c2f8b101e230.png" alt><br>如图，当i=4,j=4时，如果模式串的下一位与文本串的下一位不匹配，则j就转移到Next[j]，即1，使得j再次与i匹配<br>显然，处理nxt数组可以通过求最长严格前缀与后缀公共串的长度得到<br>以下代码:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">inline void get_Next()&#123;</span><br><span class="line">	int j=0;</span><br><span class="line">	F(i,1,l2)&#123;//l2为模式串的长度</span><br><span class="line">		while(j&amp;&amp;s2[j+1]!=s2[i+1])//s2为模式串，如果没有跳到头就继续匹配</span><br><span class="line">			j=Next[j];//失配就往前跳</span><br><span class="line">		if(s2[j+1]==s2[i+1])//如果下一位相同</span><br><span class="line">			j++;//模式串+1</span><br><span class="line">		Next[i+1]=j;//处理Next数组</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>接下来就是模式串匹配，思路和求Next数组差不多，匹配则往后一位，失配则跳Next数组，代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">inline void kmp()&#123;</span><br><span class="line">	int j=0;</span><br><span class="line">	F(i,0,l1-1)&#123;</span><br><span class="line">		while(j&amp;&amp;s2[j+1]!=s1[i+1])//失配</span><br><span class="line">			j=Next[j];</span><br><span class="line">		if(s2[j+1]==s1[i+1])</span><br><span class="line">			j++;</span><br><span class="line">		if(j==l2)&#123;//匹配成功</span><br><span class="line">			printf(&quot;%d\n&quot;,i-j+2);//此处为(i+1)-j+1</span><br><span class="line">			j=Next[j];//继续找所有的匹配串</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+        <p>DFT: </p>
+<script type="math/tex; mode=display">
+多项式定义:\sum_{i=0}^n a_i x^i\\
+系数表示法:f(x)=\sum_{i=0}^n a_i x^i\\
+点值表示法:\{(x_0,f(x_0)),(x_1,f(x_1)),\dots,(x_n,f(x_n))\}</script><hr>
+<script type="math/tex; mode=display">
+i^2=-1,i=\sqrt{-1}\\
+解方程x^n=1,n个根\\
+欧拉公式e^{\pi i}=-1\\
+e^{2\pi i}=1=x^n\\
+e^{\frac{2\pi i}{n}}=x\\
+\because x_i^n=1\\
+\therefore 模长为1,均匀分布在以原点为圆心的一个单位圆上\\
+则设\omega_n^x为方程x^n=1的第x个根(x_0=1,x_1=e^{\frac{2\pi i}{n}},\dots,x_k=e^{\frac{2\pi ik}{n}},\dots,x_{n-1}=e^{\frac{2\pi i(n-1)}{n}})\\
+称\omega_n^1(即\omega_n)为单位根\\
+\omega_n^k=e^{\frac{2\pi ik}{n}}\\</script><hr>
+<h3 id="引理1"><a href="#引理1" class="headerlink" title="引理1:"></a>引理1:</h3><script type="math/tex; mode=display">
+\forall\omega_{nk}^{tk}=e^{\frac{2\pi itk}{nk}}=e^{\frac{2\pi it}{n}}=\omega_{n}^{t}\\
+即上下同时乘一个数依然成立\\</script><h3 id="引理2"><a href="#引理2" class="headerlink" title="引理2:"></a>引理2:</h3><script type="math/tex; mode=display">
+\omega_n^{\frac n 2+k}=e^{\frac{2\pi i(\frac n 2+k)}{n}}=e^{\frac{\pi in+2\pi ik}{n}}\\
+=e^{\frac{\pi in}{n}}\times e^{\frac{2\pi ik}{n}}=e^{\pi i}\times e^{\frac{2\pi ik}{n}}\\
+=e^{\pi i}\times e^{\frac{2\pi ik}{n}}=-e^{\frac{2\pi ik}{n}}=-\omega_n^k\\
+即\omega_n^{\frac n 2+k}=-\omega_n^k</script><script type="math/tex; mode=display">
+由玄学内容可知\\
+将\omega_n^k代入f(x)并将其转为点值表示法很快\\</script><script type="math/tex; mode=display">
+则f(\omega_n^k)=\sum_{i=0}^n a_i\omega_n^{ki}\\
+在这令n为2^m(m为使n\leq2^m的最小值),之后的a_i补零便于二分\\
+f(\omega_n^k)=\sum_{i=0}^{\frac n 2-1} a_{2i}\omega_n^{2ki}+\sum_{i=0}^{\frac n 2-1} a_{2i+1}\omega_n^{k(2i+1)}\\
+f(\omega_n^k)=\sum_{i=0}^{\frac n 2-1} a_{2i}\omega_n^{2ki}+\omega_n^k\sum_{i=0}^{\frac n 2-1} a_{2i+1}\omega_n^{2ki}\\
+f(\omega_n^k)=\sum_{i=0}^{\frac n 2-1} a_{2i}\omega_{\frac n 2}^{ki}+\omega_n^k\sum_{i=0}^{\frac n 2-1} a_{2i+1}\omega_{\frac n 2}^{ki}\\</script><script type="math/tex; mode=display">
+令0\leq k<\frac n 2\\
+f(\omega_n^k)=\sum_{i=0}^{\frac n 2-1} a_{2i}\omega_{\frac n 2}^{ki}+\omega_n^k\sum_{i=0}^{\frac n 2-1} a_{2i+1}\omega_{\frac n 2}^{ki}\\
+f(\omega_n^{k+\frac n 2})=\sum_{i=0}^{\frac n 2-1} a_{2i}\omega_{\frac n 2}^{(k+\frac n 2)i}+\omega_n^{k+\frac n 2}\sum_{i=0}^{\frac n 2-1} a_{2i+1}\omega_{\frac n 2}^{(k+\frac n 2)i}\\
+=\sum_{i=0}^{\frac n 2-1} a_{2i}\omega_{\frac n 2}^{(k+\frac n 2)i}-\omega_n^k\sum_{i=0}^{\frac n 2-1} a_{2i+1}\omega_{\frac n 2}^{(k+\frac n 2)i}\\</script><hr>
+<script type="math/tex; mode=display">
+\omega_{\frac n 2}^{(k+\frac n 2)i}=\omega_{\frac n 2}^{ki+\frac n 2i}=\omega_{\frac n 2}^{ki}(\omega_{\frac n 2}^{\frac n 2})^i\\
+\because \omega_n^n=1\\
+\therefore \omega_{\frac n 2}^{(k+\frac n 2)i}=\omega_{\frac n 2}^{ki}</script><hr>
+<script type="math/tex; mode=display">
+f(\omega_n^{k+\frac n 2})=\sum_{i=0}^{\frac n 2-1} a_{2i}\omega_{\frac n 2}^{(k+\frac n 2)i}-\omega_n^k\sum_{i=0}^{\frac n 2-1} a_{2i+1}\omega_{\frac n 2}^{(k+\frac n 2)i}\\
+f(\omega_n^{k+\frac n 2})=\sum_{i=0}^{\frac n 2-1} a_{2i}\omega_{\frac n 2}^{ki}-\omega_n^k\sum_{i=0}^{\frac n 2-1} a_{2i+1}\omega_{\frac n 2}^{ki}</script><script type="math/tex; mode=display">
+令A'=\sum_{i=0}^{\frac n 2-1} a_{2i}\omega_{\frac n 2}^{ki}\\
+A''=\omega_n^k\sum_{i=0}^{\frac n 2-1} a_{2i+1}\omega_{\frac n 2}^{ki}\\
+观察得f(\omega_n^k)=A'+A''\\
+f(\omega_n^{k+\frac n 2})=A'-A''\\
+即算出\omega_n^k的A'和A''即可O(1)算出f(\omega_n^{k+\frac n 2})=A'-A''\\
+不断二分，感性理解复杂度为O(n\log_2n)(类似于线段树)</script><p>至此，由系数表示法转化为点值表示法做完，接下来讲这么变回去(即由点值表示法变为系数表示法)</p>
+<p>IDFT:</p>
+<script type="math/tex; mode=display">
+平面上有n个点，分别为\{(\omega_n^0,f(\omega_n^0)),(\omega_n^1,f(\omega_n^1)),\dots,(\omega_n^{n-1},f(\omega_n^{n-1}))\}(这是我们刚刚DFT转成的点值表示法)\\
+现想要得到这n个点组成的唯一能确定的n-1次的解析式\\
+设解析式为f(x)=\sum_{i=0}^{n-1}a_ix^i\\
+将点坐标代入\\
+\begin{cases}\begin{array}{ccccccccccc}
+f(\omega_n^0)&=&a_0(\omega_n^0)^0&+&a_1(\omega_n^0)^1&+&a_2(\omega_n^0)^2&+&\dots&+&a_{n-1}(\omega_n^0)^{n-1}\\
+f(\omega_n^1)&=&a_0(\omega_n^1)^0&+&a_1(\omega_n^1)^1&+&a_2(\omega_n^1)^2&+&\dots&+&a_{n-1}(\omega_n^1)^{n-1}\\
+\vdots&&\vdots&&\vdots&&\vdots&&\vdots&&\vdots\\
+f(\omega_n^{n-1})&=&a_0(\omega_n^{n-1})^0&+&a_1(\omega_n^{n-1})^1&+&a_2(\omega_n^{n-1})^2&+&\dots&+&a_{n-1}(\omega_n^{n-1})^{n-1}\\
+\end{array}\end{cases}</script><hr>
+<h3 id="矩阵有关预备知识"><a href="#矩阵有关预备知识" class="headerlink" title="矩阵有关预备知识"></a>矩阵有关预备知识</h3><h3 id="1-矩阵乘法"><a href="#1-矩阵乘法" class="headerlink" title="1.矩阵乘法"></a>1.矩阵乘法</h3><script type="math/tex; mode=display">
+A,B为两个矩阵\\
+A为n\times p的矩阵，元素为a_{i,j}\\
+B为p\times m的矩阵，元素为b_{i,j}\\
+A\times B=C\\
+C为n\times m的矩阵，元素为c_{i,j}\\
+c_{i,j}=\sum_{k=1}^p a_{i,k}\times b_{k,j}\\</script><h3 id="2-单位元矩阵与逆矩阵"><a href="#2-单位元矩阵与逆矩阵" class="headerlink" title="2.单位元矩阵与逆矩阵"></a>2.单位元矩阵与逆矩阵</h3><script type="math/tex; mode=display">
+单位元:类似乘法的单位元为1,异或运算的单位元为0等\\
+矩阵乘法的单位元为
+I=
+\begin{bmatrix}
+1&0&\cdots&0\\
+0&1&\cdots&0\\
+\vdots&\vdots&\ddots&\vdots\\
+0&0&\cdots&1\\
+\end{bmatrix}\\
+即n\times n的从左上角到右下角都是1的矩阵，其余元素都是0\\
+称I_k为k\times k的单位元矩阵\\
+逆矩阵:如有A\times B=I\\
+则称B是A的逆矩阵\\
+记做B=A^{-1}</script><h3 id="Tips"><a href="#Tips" class="headerlink" title="Tips:"></a>Tips:</h3><p>矩阵乘法不满足交换律</p>
+<p>一个矩阵乘上一个数的结果是矩阵中每个元素都乘上这个数后的矩阵</p>
+<script type="math/tex; mode=display">
+n\times D\to d_{i,j}\times n</script><hr>
+<script type="math/tex; mode=display">
+解出以上方程组，即可知道所有a_i的值，也就成功将点值表示法转化为系数表示法\\
+将上述方程组转化为矩阵乘法形式\\
+\begin{bmatrix}
+f(\omega_n^0)\\
+f(\omega_n^1)\\
+\vdots\\
+f(\omega_n^{n-1})
+\end{bmatrix}
+=
+\begin{bmatrix}
+(\omega_n^0)^0&(\omega_n^0)^1&(\omega_n^0)^2&\dots&(\omega_n^0)^{n-1}\\
+(\omega_n^1)^0&(\omega_n^1)^1&(\omega_n^1)^2&\dots&(\omega_n^1)^{n-1}\\
+\vdots&\vdots&\vdots&\ddots&\vdots\\
+(\omega_n^{n-1})^0&(\omega_n^{n-1})^1&(\omega_n^{n-1})^2&\dots&(\omega_n^{n-1})^{n-1}\\
+\end{bmatrix}
+\begin{bmatrix}
+a_0\\
+a_1\\
+\vdots\\
+a_{n-1}\\
+\end{bmatrix}</script><script type="math/tex; mode=display">
+设矩阵V=
+\begin{bmatrix}
+(\omega_n^0)^0&(\omega_n^0)^1&(\omega_n^0)^2&\dots&(\omega_n^0)^{n-1}\\
+(\omega_n^1)^0&(\omega_n^1)^1&(\omega_n^1)^2&\dots&(\omega_n^1)^{n-1}\\
+\vdots&\vdots&\vdots&\ddots&\vdots\\
+(\omega_n^{n-1})^0&(\omega_n^{n-1})^1&(\omega_n^{n-1})^2&\dots&(\omega_n^{n-1})^{n-1}\\
+\end{bmatrix}\\
+另设矩阵D=\begin{bmatrix}
+(\omega_n^{-0})^0&(\omega_n^{-0})^1&(\omega_n^{-0})^2&\dots&(\omega_n^{-0})^{n-1}\\
+(\omega_n^{-1})^0&(\omega_n^{-1})^1&(\omega_n^{-1})^2&\dots&(\omega_n^{-1})^{n-1}\\
+\vdots&\vdots&\vdots&\ddots&\vdots\\
+(\omega_n^{-(n-1)})^0&(\omega_n^{-(n-1)})^1&(\omega_n^{-(n-1)})^2&\dots&(\omega_n^{-(n-1)})^{n-1}\\
+\end{bmatrix}\\</script><h3 id="Tip"><a href="#Tip" class="headerlink" title="Tip:"></a>Tip:</h3><script type="math/tex; mode=display">
+为方便后续计算，我们称第1行为第0行，第2行为第1行,第n行为第n-1行\\
+则v_{i,j}=(\omega_n^i)^j\\
+则d_{i,j}=(\omega_n^{-i})^j</script><hr>
+<script type="math/tex; mode=display">
+等比求和公式:\\
+求\sum_{i=0}^{n-1}a^i\\
+令S=\sum_{i=0}^{n-1}a^i\\
+则S\times a=\sum_{i=0}^{n-1}a^{i+1}=\sum_{i=1}^na^i\\
+S\times a-S=\sum_{i=1}^na^i-\sum_{i=0}^{n-1}a^i=a^n-1\\
+S\times(a-1)=a^n-1\\
+S=\frac{a^n-1}{a-1}</script><hr>
+<script type="math/tex; mode=display">
+再设E=D\times V\\
+则e_{i,j}=\sum_{k=0}^{n-1} d_{i,k}\times v_{k,j}\\
+=\sum_{k=0}^{n-1} (\omega_n^{-i})^k\times (\omega_n^k)^j\\
+=\sum_{k=0}^{n-1} \omega_n^{-ik}\times\omega_n^{kj}\\
+=\sum_{k=0}^{n-1} \omega_n^{k(j-i)}\\
+当[i=j]时\\
+e_{i,j}=\sum_{k=0}^{n-1} 1=n\\
+当[i\not=j]时\\
+e_{i,j}=\sum_{k=0}^{n-1} (\omega_n^{j-i})^k\\
+=\frac{(\omega_n^{j-i})^n-1}{\omega_n^{j-i}-1}\\
+=\frac{(\omega_n^n)^{j-i}-1}{\omega_n^{j-i}-1}\\
+=\frac{1^{j-i}-1}{\omega_n^{j-i}-1}\\
+=\frac{0}{\omega_n^{j-i}-1}\\
+=0\\
+\therefore e_{i,j}=[i=j]n\\
+\therefore E=nI</script><script type="math/tex; mode=display">
+\therefore DV=E=nI\\
+\therefore \frac 1 nDV=I\\
+\therefore \frac 1 nD=IV^{-1}\\
+\because I为矩阵乘法的单位元\\
+\therefore \frac 1 nD=V^{-1}\\
+V^{-1}=\frac 1 nD</script><script type="math/tex; mode=display">
+\begin{bmatrix}
+f(\omega_n^0)\\
+f(\omega_n^1)\\
+\vdots\\
+f(\omega_n^{n-1})
+\end{bmatrix}
+=V\begin{bmatrix}
+a_0\\
+a_1\\
+\vdots\\
+a_{n-1}\\
+\end{bmatrix}\\</script><script type="math/tex; mode=display">
+\begin{bmatrix}
+f(\omega_n^0)\\
+f(\omega_n^1)\\
+\vdots\\
+f(\omega_n^{n-1})
+\end{bmatrix}
+V^{-1}=\begin{bmatrix}
+a_0\\
+a_1\\
+\vdots\\
+a_{n-1}\\
+\end{bmatrix}\\</script><script type="math/tex; mode=display">
+\begin{bmatrix}
+a_0\\
+a_1\\
+\vdots\\
+a_{n-1}\\
+\end{bmatrix}
+=\begin{bmatrix}
+f(\omega_n^0)\\
+f(\omega_n^1)\\
+\vdots\\
+f(\omega_n^{n-1})
+\end{bmatrix}
+V^{-1}</script><script type="math/tex; mode=display">
+\\\begin{bmatrix}
+a_0\\
+a_1\\
+\vdots\\
+a_{n-1}\\
+\end{bmatrix}=\begin{bmatrix}
+f(\omega_n^0)\\
+f(\omega_n^1)\\
+\vdots\\
+f(\omega_n^{n-1})
+\end{bmatrix}
+\frac 1 n D
+\\</script><p>搞定！至此就求出$a_0$到$a_{n-1}$所有数，成功将点值表示法转换为系数表示法</p>
 
       
     </div>
@@ -566,8 +751,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/23/[置顶]博客说明/" rel="next" title="【置顶】博客说明">
-                <i class="fa fa-chevron-left"></i> 【置顶】博客说明
+              <a href="/2019/03/23/USACO13NOV 没有找零No Change 题解/" rel="next" title="USACO13NOV 没有找零No Change 题解">
+                <i class="fa fa-chevron-left"></i> USACO13NOV 没有找零No Change 题解
               </a>
             
           </div>
@@ -575,10 +760,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/23/字符串算法模板合集/" rel="prev" title="字符串算法模板合集">
-                字符串算法模板合集 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -875,7 +1056,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Ⅰ、预备知识"><span class="nav-number">1.</span> <span class="nav-text">Ⅰ、预备知识</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#引理1"><span class="nav-number">1.</span> <span class="nav-text">引理1:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引理2"><span class="nav-number">2.</span> <span class="nav-text">引理2:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#矩阵有关预备知识"><span class="nav-number">3.</span> <span class="nav-text">矩阵有关预备知识</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-矩阵乘法"><span class="nav-number">4.</span> <span class="nav-text">1.矩阵乘法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-单位元矩阵与逆矩阵"><span class="nav-number">5.</span> <span class="nav-text">2.单位元矩阵与逆矩阵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tips"><span class="nav-number">6.</span> <span class="nav-text">Tips:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tip"><span class="nav-number">7.</span> <span class="nav-text">Tip:</span></a></li></ol></div>
             
 
           </div>

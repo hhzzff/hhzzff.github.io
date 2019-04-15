@@ -128,20 +128,16 @@
 
 
 
-  <meta name="description" content="Ⅰ、预备知识$KMP$，全称$Knuth-Morris-Pratt$算法，可以实现高效搜索一个模式串P(长为m)在文本串S(长为n）中出现的位置，其核心是处理$next$数组，预处理模式串失配后将匹配的位置，从而实现高效搜索普通的模式串搜索，是暴力一位一位枚举$S[i]$与$P[j]$是否相等，不相等则往后移一位，重新匹配代码大概长这样：1234567891011inline void check">
-<meta name="keywords" content="算法">
-<meta property="og:type" content="article">
-<meta property="og:title" content="浅谈KMP字符串匹配算法">
-<meta property="og:url" content="http://yoursite.com/2019/03/23/浅谈KMP字符串匹配算法/index.html">
+  <meta name="description" content="鱼：我不做多边形啦！JOJO！">
+<meta property="og:type" content="website">
+<meta property="og:title" content="_____hzf_____">
+<meta property="og:url" content="http://yoursite.com/archives/2019/04/index.html">
 <meta property="og:site_name" content="_____hzf_____">
-<meta property="og:description" content="Ⅰ、预备知识$KMP$，全称$Knuth-Morris-Pratt$算法，可以实现高效搜索一个模式串P(长为m)在文本串S(长为n）中出现的位置，其核心是处理$next$数组，预处理模式串失配后将匹配的位置，从而实现高效搜索普通的模式串搜索，是暴力一位一位枚举$S[i]$与$P[j]$是否相等，不相等则往后移一位，重新匹配代码大概长这样：1234567891011inline void check">
+<meta property="og:description" content="鱼：我不做多边形啦！JOJO！">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://i.loli.net/2019/01/05/5c2f8b101e230.png">
-<meta property="og:updated_time" content="2019-04-13T13:59:58.451Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="浅谈KMP字符串匹配算法">
-<meta name="twitter:description" content="Ⅰ、预备知识$KMP$，全称$Knuth-Morris-Pratt$算法，可以实现高效搜索一个模式串P(长为m)在文本串S(长为n）中出现的位置，其核心是处理$next$数组，预处理模式串失配后将匹配的位置，从而实现高效搜索普通的模式串搜索，是暴力一位一位枚举$S[i]$与$P[j]$是否相等，不相等则往后移一位，重新匹配代码大概长这样：1234567891011inline void check">
-<meta name="twitter:image" content="https://i.loli.net/2019/01/05/5c2f8b101e230.png">
+<meta name="twitter:title" content="_____hzf_____">
+<meta name="twitter:description" content="鱼：我不做多边形啦！JOJO！">
 
 
 
@@ -149,7 +145,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/03/23/浅谈KMP字符串匹配算法/">
+  <link rel="canonical" href="http://yoursite.com/archives/2019/04/">
 
 
 
@@ -159,7 +155,7 @@
   };
 </script>
 
-  <title>浅谈KMP字符串匹配算法 | _____hzf_____</title>
+  <title>Archive | _____hzf_____</title>
   
 
 
@@ -217,7 +213,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left page-archive">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -331,7 +327,7 @@
         
         
           
-          <li class="menu-item menu-item-archives">
+          <li class="menu-item menu-item-archives menu-item-active">
 
     
     
@@ -393,6 +389,34 @@
   
     
 
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+    
+
+  
+
+
   
 
   
@@ -417,192 +441,78 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
+  
+  
+  
+  <div class="post-block archive">
+    <div id="posts" class="posts-collapse">
+      <span class="archive-move-on"></span>
 
-  
+      
+      <span class="archive-page-counter">
+        
+        
+        
+          
+        
+        Um..! 12 posts in total. Keep on posting.
+      </span>
+      
 
-  
-  
-  
+      
 
-  
+        
+        
+        
+
+        
+          
+          <div class="collection-title">
+            <h1 class="archive-year" id="archive-year-2019">2019</h1>
+          </div>
+        
+        
+
+        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/23/浅谈KMP字符串匹配算法/">
+    <header class="post-header">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="_____hzf_____">
-      <meta itemprop="description" content="鱼：我不做多边形啦！JOJO！">
-      <meta itemprop="image" content="https://i.loli.net/2019/03/17/5c8e3ff66804c.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="_____hzf_____">
-    </span>
-
-    
-      <header class="post-header">
-
+      <h2 class="post-title">
         
+          <a class="post-title-link" href="/2019/04/14/DFT&IDFT学习笔记/" itemprop="url">
+            
+              <span itemprop="name">DFT&IDFT学习笔记</span>
+            
+          </a>
         
-          <h1 class="post-title" itemprop="name headline">浅谈KMP字符串匹配算法
+      </h2>
 
-              
-            
-          </h1>
-        
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2019-04-14T00:00:00+08:00" content="2019-04-14">
+          04-14
+        </time>
+      </div>
 
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-03-23 00:00:00" itemprop="dateCreated datePublished" datetime="2019-03-23T00:00:00+08:00">2019-03-23</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-04-13 21:59:58" itemprop="dateModified" datetime="2019-04-13T21:59:58+08:00">2019-04-13</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <h1 id="Ⅰ、预备知识"><a href="#Ⅰ、预备知识" class="headerlink" title="Ⅰ、预备知识"></a><strong>Ⅰ、预备知识</strong></h1><p>$KMP$，全称$Knuth-Morris-Pratt$算法，可以实现高效搜索一个<strong>模式串P(长为m)</strong>在<strong>文本串S(长为n）</strong>中出现的位置，其核心是处理$next$数组，预处理模式串失配后将匹配的位置，从而实现高效搜索<br>普通的模式串搜索，是暴力一位一位枚举$S[i]$与$P[j]$是否相等，不相等则往后移一位，重新匹配<br>代码大概长这样：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">inline void check(char *p,char *s)&#123;</span><br><span class="line">    int i=1,j=1,lst=1;</span><br><span class="line">    while(1)&#123;</span><br><span class="line">        if(j==m+1)</span><br><span class="line">            return lst;</span><br><span class="line">        if(s[i]==p[j])</span><br><span class="line">            i++,j++;</span><br><span class="line">        else</span><br><span class="line">            j=1,i=++lst;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>很明显，这种写法做了许多无用功，一些显然无法匹配的段也要$O(m)$去搜索。最坏情况下，这种写法可以被卡成$O(n\times m)$<br>于是，$kmp$算法诞生了<br>$kmp$的核心思想为不一位一位暴力匹配，而是通过Next数组大大减少匹配数量<br>Next数组表示什么呢？<br>设$s_{i\ldots j}$表示字符串$s$的第$i$位到第$j$位，i表示文本串已经处理了多少点，j表示模式串已经匹配了多少点<br>Next数组表示当$s1[i+1]!=s2[j+1]$时，即模式串与文本串下一位失配时，j指针要去往的位置(s1表示文本串,s2表示模式串)<br><img src="https://i.loli.net/2019/01/05/5c2f8b101e230.png" alt><br>如图，当i=4,j=4时，如果模式串的下一位与文本串的下一位不匹配，则j就转移到Next[j]，即1，使得j再次与i匹配<br>显然，处理nxt数组可以通过求最长严格前缀与后缀公共串的长度得到<br>以下代码:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">inline void get_Next()&#123;</span><br><span class="line">	int j=0;</span><br><span class="line">	F(i,1,l2)&#123;//l2为模式串的长度</span><br><span class="line">		while(j&amp;&amp;s2[j+1]!=s2[i+1])//s2为模式串，如果没有跳到头就继续匹配</span><br><span class="line">			j=Next[j];//失配就往前跳</span><br><span class="line">		if(s2[j+1]==s2[i+1])//如果下一位相同</span><br><span class="line">			j++;//模式串+1</span><br><span class="line">		Next[i+1]=j;//处理Next数组</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>接下来就是模式串匹配，思路和求Next数组差不多，匹配则往后一位，失配则跳Next数组，代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">inline void kmp()&#123;</span><br><span class="line">	int j=0;</span><br><span class="line">	F(i,0,l1-1)&#123;</span><br><span class="line">		while(j&amp;&amp;s2[j+1]!=s1[i+1])//失配</span><br><span class="line">			j=Next[j];</span><br><span class="line">		if(s2[j+1]==s1[i+1])</span><br><span class="line">			j++;</span><br><span class="line">		if(j==l2)&#123;//匹配成功</span><br><span class="line">			printf(&quot;%d\n&quot;,i-j+2);//此处为(i+1)-j+1</span><br><span class="line">			j=Next[j];//继续找所有的匹配串</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/算法/" rel="tag"># 算法</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2019/03/23/[置顶]博客说明/" rel="next" title="【置顶】博客说明">
-                <i class="fa fa-chevron-left"></i> 【置顶】博客说明
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/23/字符串算法模板合集/" rel="prev" title="字符串算法模板合集">
-                字符串算法模板合集 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
+    </header>
   </article>
 
 
+
+      
+
+    </div>
   </div>
-
-
-          </div>
-          
+  
+  
+  
 
   
 
 
+
+          </div>
+          
 
         </div>
         
@@ -622,17 +532,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <div class="site-overview-wrap sidebar-panel">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -865,23 +766,6 @@
       </div>
 
       
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Ⅰ、预备知识"><span class="nav-number">1.</span> <span class="nav-text">Ⅰ、预备知识</span></a></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
-      
 
       
         <div class="back-to-top">
@@ -1027,10 +911,6 @@
 
 
   
-  <script src="/js/scrollspy.js?v=7.1.0"></script>
-<script src="/js/post-details.js?v=7.1.0"></script>
-
-
 
   
 
@@ -1049,8 +929,6 @@
 
   
 
-
-  
 
 
   
