@@ -734,7 +734,7 @@ i^2=-1,i=\sqrt{-
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/23/USACO13NOV 没有找零No Change 题解/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/23/浅谈CDQ分治/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="_____hzf_____">
@@ -754,7 +754,7 @@ i^2=-1,i=\sqrt{-
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/03/23/USACO13NOV 没有找零No Change 题解/" class="post-title-link" itemprop="url">USACO13NOV 没有找零No Change 题解</a>
+                <a href="/2019/03/23/浅谈CDQ分治/" class="post-title-link" itemprop="url">浅谈CDQ分治</a>
               
             
           </h1>
@@ -796,7 +796,7 @@ i^2=-1,i=\sqrt{-
                 
                   <span class="post-meta-item-text">Bearbeitet am</span>
                 
-                <time title="Geändert am: 2019-04-13 21:59:40" itemprop="dateModified" datetime="2019-04-13T21:59:40+08:00">2019-04-13</time>
+                <time title="Geändert am: 2019-04-13 21:59:49" itemprop="dateModified" datetime="2019-04-13T21:59:49+08:00">2019-04-13</time>
               
             
           </span>
@@ -833,15 +833,181 @@ i^2=-1,i=\sqrt{-
         
           
             <p>
-              题目描述约翰到商场购物，他的钱包里有K(1 &lt;= K &lt;= 16)个硬币，面值的范围是1..100,000,000。
-约翰想按顺序买 N个物品(1 &lt;= N &lt;= 100,000)，第i个物品需要花费c(i)块钱，(1 &lt;= c(i) &lt;= 10,000)。
-在依
+              Ⅰ、预备知识整体二分？？？
+Ⅱ、抛出问题我们先来看一道洛谷的模板题
+题目背景这是一道模板题可以使用bitset(不会)，CDQ分治，K-DTree(不会)等方式解决。
+题目描述有$n$个元素，第$i$个元素有$a_i$、$b_i$、$c_i$三个属性，设$f(i)$表示满足$a_j\leq a_i$
               ...
             </p>
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/2019/03/23/USACO13NOV 没有找零No Change 题解/#more" rel="contents">
+              <a class="btn" href="/2019/03/23/浅谈CDQ分治/#more" rel="contents">
+                Weiterlesen &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/23/字符串算法模板合集/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="_____hzf_____">
+      <meta itemprop="description" content="鱼：我不做多边形啦！JOJO！">
+      <meta itemprop="image" content="https://i.loli.net/2019/03/17/5c8e3ff66804c.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="_____hzf_____">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/03/23/字符串算法模板合集/" class="post-title-link" itemprop="url">字符串算法模板合集</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Erstellt: 2019-03-23 00:00:00" itemprop="dateCreated datePublished" datetime="2019-03-23T00:00:00+08:00">2019-03-23</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Bearbeitet am</span>
+                
+                <time title="Geändert am: 2019-04-13 22:00:19" itemprop="dateModified" datetime="2019-04-13T22:00:19+08:00">2019-04-13</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>
+              1、KMPKMP模板#include&lt;iostream&gt;#include&lt;cstdio&gt;#include&lt;cmath&gt;#include&lt;algorithm&gt;#include&lt;cstring&gt;#define ll long long#defi
+              ...
+            </p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/03/23/字符串算法模板合集/#more" rel="contents">
                 Weiterlesen &raquo;
               </a>
             </div>
@@ -1069,6 +1235,173 @@ i^2=-1,i=\sqrt{-
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/23/浅谈斜率优化dp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="_____hzf_____">
+      <meta itemprop="description" content="鱼：我不做多边形啦！JOJO！">
+      <meta itemprop="image" content="https://i.loli.net/2019/03/17/5c8e3ff66804c.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="_____hzf_____">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/03/23/浅谈斜率优化dp/" class="post-title-link" itemprop="url">浅谈斜率优化dp</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Erstellt: 2019-03-23 00:00:00" itemprop="dateCreated datePublished" datetime="2019-03-23T00:00:00+08:00">2019-03-23</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Bearbeitet am</span>
+                
+                <time title="Geändert am: 2019-04-13 22:00:16" itemprop="dateModified" datetime="2019-04-13T22:00:16+08:00">2019-04-13</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>
+              Ⅰ、前置知识$y=kx+b$$k$叫斜率，$b$叫截距$(x_1,y_1)$$(x_2,y_2)$两点连成的直线的斜率$k=\frac{y1-y2}{x1-x2}$
+Ⅱ、抛出问题洛谷板子
+题目描述$n$个任务排成一个序列在一台机器上等待完成（顺序不得改变），这$n$个任务被分成若干批，每批包含相邻的
+              ...
+            </p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/03/23/浅谈斜率优化dp/#more" rel="contents">
+                Weiterlesen &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/23/浅谈计数排序/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1235,7 +1568,7 @@ i^2=-1,i=\sqrt{-
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/23/字符串算法模板合集/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/23/浅谈斯坦纳树 && [WC2008]游览计划题解/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="_____hzf_____">
@@ -1255,7 +1588,7 @@ i^2=-1,i=\sqrt{-
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/03/23/字符串算法模板合集/" class="post-title-link" itemprop="url">字符串算法模板合集</a>
+                <a href="/2019/03/23/浅谈斯坦纳树 && [WC2008]游览计划题解/" class="post-title-link" itemprop="url">浅谈斯坦纳树 && [WC2008]游览计划题解</a>
               
             
           </h1>
@@ -1297,7 +1630,7 @@ i^2=-1,i=\sqrt{-
                 
                   <span class="post-meta-item-text">Bearbeitet am</span>
                 
-                <time title="Geändert am: 2019-04-13 22:00:19" itemprop="dateModified" datetime="2019-04-13T22:00:19+08:00">2019-04-13</time>
+                <time title="Geändert am: 2019-04-13 22:00:12" itemprop="dateModified" datetime="2019-04-13T22:00:12+08:00">2019-04-13</time>
               
             
           </span>
@@ -1334,13 +1667,13 @@ i^2=-1,i=\sqrt{-
         
           
             <p>
-              1、KMPKMP模板#include&lt;iostream&gt;#include&lt;cstdio&gt;#include&lt;cmath&gt;#include&lt;algorithm&gt;#include&lt;cstring&gt;#define ll long long#defi
+              Ⅰ、抛出问题题目描述从未来过绍兴的小D有幸参加了Winter Camp 2008，他被这座历史名城的秀丽风景所吸引，强烈要求游览绍兴及其周边的所有景点。主办者将绍兴划分为$N$行$M$列$(N×M)$个分块，如下图$(8×8)$：景点含于方块内，且一个方块至多有一个景点。无景点的方块视为路。为了保证
               ...
             </p>
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/2019/03/23/字符串算法模板合集/#more" rel="contents">
+              <a class="btn" href="/2019/03/23/浅谈斯坦纳树 && [WC2008]游览计划题解/#more" rel="contents">
                 Weiterlesen &raquo;
               </a>
             </div>
@@ -1565,7 +1898,7 @@ i^2=-1,i=\sqrt{-
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/23/浅谈斜率优化dp/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/23/USACO13NOV 没有找零No Change 题解/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="_____hzf_____">
@@ -1585,7 +1918,7 @@ i^2=-1,i=\sqrt{-
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/03/23/浅谈斜率优化dp/" class="post-title-link" itemprop="url">浅谈斜率优化dp</a>
+                <a href="/2019/03/23/USACO13NOV 没有找零No Change 题解/" class="post-title-link" itemprop="url">USACO13NOV 没有找零No Change 题解</a>
               
             
           </h1>
@@ -1627,7 +1960,7 @@ i^2=-1,i=\sqrt{-
                 
                   <span class="post-meta-item-text">Bearbeitet am</span>
                 
-                <time title="Geändert am: 2019-04-13 22:00:16" itemprop="dateModified" datetime="2019-04-13T22:00:16+08:00">2019-04-13</time>
+                <time title="Geändert am: 2019-04-13 21:59:40" itemprop="dateModified" datetime="2019-04-13T21:59:40+08:00">2019-04-13</time>
               
             
           </span>
@@ -1664,348 +1997,15 @@ i^2=-1,i=\sqrt{-
         
           
             <p>
-              Ⅰ、前置知识$y=kx+b$$k$叫斜率，$b$叫截距$(x_1,y_1)$$(x_2,y_2)$两点连成的直线的斜率$k=\frac{y1-y2}{x1-x2}$
-Ⅱ、抛出问题洛谷板子
-题目描述$n$个任务排成一个序列在一台机器上等待完成（顺序不得改变），这$n$个任务被分成若干批，每批包含相邻的
+              题目描述约翰到商场购物，他的钱包里有K(1 &lt;= K &lt;= 16)个硬币，面值的范围是1..100,000,000。
+约翰想按顺序买 N个物品(1 &lt;= N &lt;= 100,000)，第i个物品需要花费c(i)块钱，(1 &lt;= c(i) &lt;= 10,000)。
+在依
               ...
             </p>
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/2019/03/23/浅谈斜率优化dp/#more" rel="contents">
-                Weiterlesen &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/23/浅谈CDQ分治/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="_____hzf_____">
-      <meta itemprop="description" content="鱼：我不做多边形啦！JOJO！">
-      <meta itemprop="image" content="https://i.loli.net/2019/03/17/5c8e3ff66804c.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="_____hzf_____">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/03/23/浅谈CDQ分治/" class="post-title-link" itemprop="url">浅谈CDQ分治</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-
-              
-                
-              
-
-              <time title="Erstellt: 2019-03-23 00:00:00" itemprop="dateCreated datePublished" datetime="2019-03-23T00:00:00+08:00">2019-03-23</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Bearbeitet am</span>
-                
-                <time title="Geändert am: 2019-04-13 21:59:49" itemprop="dateModified" datetime="2019-04-13T21:59:49+08:00">2019-04-13</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>
-              Ⅰ、预备知识整体二分？？？
-Ⅱ、抛出问题我们先来看一道洛谷的模板题
-题目背景这是一道模板题可以使用bitset(不会)，CDQ分治，K-DTree(不会)等方式解决。
-题目描述有$n$个元素，第$i$个元素有$a_i$、$b_i$、$c_i$三个属性，设$f(i)$表示满足$a_j\leq a_i$
-              ...
-            </p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/03/23/浅谈CDQ分治/#more" rel="contents">
-                Weiterlesen &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/23/浅谈斯坦纳树 && [WC2008]游览计划题解/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="_____hzf_____">
-      <meta itemprop="description" content="鱼：我不做多边形啦！JOJO！">
-      <meta itemprop="image" content="https://i.loli.net/2019/03/17/5c8e3ff66804c.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="_____hzf_____">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/03/23/浅谈斯坦纳树 && [WC2008]游览计划题解/" class="post-title-link" itemprop="url">浅谈斯坦纳树 && [WC2008]游览计划题解</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-
-              
-                
-              
-
-              <time title="Erstellt: 2019-03-23 00:00:00" itemprop="dateCreated datePublished" datetime="2019-03-23T00:00:00+08:00">2019-03-23</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Bearbeitet am</span>
-                
-                <time title="Geändert am: 2019-04-13 22:00:12" itemprop="dateModified" datetime="2019-04-13T22:00:12+08:00">2019-04-13</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>
-              Ⅰ、抛出问题题目描述从未来过绍兴的小D有幸参加了Winter Camp 2008，他被这座历史名城的秀丽风景所吸引，强烈要求游览绍兴及其周边的所有景点。主办者将绍兴划分为$N$行$M$列$(N×M)$个分块，如下图$(8×8)$：景点含于方块内，且一个方块至多有一个景点。无景点的方块视为路。为了保证
-              ...
-            </p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/03/23/浅谈斯坦纳树 && [WC2008]游览计划题解/#more" rel="contents">
+              <a class="btn" href="/2019/03/23/USACO13NOV 没有找零No Change 题解/#more" rel="contents">
                 Weiterlesen &raquo;
               </a>
             </div>
@@ -2415,9 +2415,6 @@ i^2=-1,i=\sqrt{-
 
 
 
-  
-  
-
 
 
 
@@ -2436,12 +2433,6 @@ i^2=-1,i=\sqrt{-
 
   
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script src="/lib/three/three.min.js"></script>
-
-  
-  <script src="/lib/three/three-waves.min.js"></script>
 
 
   
