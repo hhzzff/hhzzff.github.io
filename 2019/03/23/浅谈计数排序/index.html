@@ -106,7 +106,7 @@
     version: '7.1.0',
     sidebar: {"position":"left","display":"always","offset":12,"onmobile":false,"dimmer":false},
     back2top: true,
-    back2top_sidebar: true,
+    back2top_sidebar: false,
     fancybox: false,
     fastclick: false,
     lazyload: false,
@@ -367,25 +367,6 @@
     <a href="/schedule/" rel="section"><i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>Zeitplan</a>
 
   </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-commonweal">
-
-    
-    
-    
-      
-    
-
-    
-      
-    
-
-    <a href="/404/" rel="section"><i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>Commonweal 404</a>
-
-  </li>
 
       
       
@@ -567,8 +548,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/23/莫比乌斯反演推导即μ函数的证明/" rel="next" title="莫比乌斯反演推导即μ函数的证明">
-                <i class="fa fa-chevron-left"></i> 莫比乌斯反演推导即μ函数的证明
+              <a href="/2019/03/23/字符串算法模板合集/" rel="next" title="字符串算法模板合集">
+                <i class="fa fa-chevron-left"></i> 字符串算法模板合集
               </a>
             
           </div>
@@ -577,8 +558,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/03/23/浅谈斯坦纳树 && [WC2008]游览计划题解/" rel="prev" title="浅谈斯坦纳树 && [WC2008]游览计划题解">
-                浅谈斯坦纳树 && [WC2008]游览计划题解 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/03/23/浅谈manacher回文串算法/" rel="prev" title="浅谈manacher回文串算法">
+                浅谈manacher回文串算法 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -664,6 +645,10 @@
                 <div class="site-state-item site-state-tags">
                   
                     
+                      <a href="/tags/">
+                    
+                  
+                    
                     
                       
                     
@@ -675,7 +660,7 @@
                     
                     <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">schlagwörter</span>
-                  
+                  </a>
                 </div>
               
             </nav>
@@ -885,13 +870,6 @@
       
 
       
-        <div class="back-to-top">
-          <i class="fa fa-arrow-up"></i>
-          
-            <span id="scrollpercent"><span>0</span>%</span>
-          
-        </div>
-      
 
     </div>
   </aside>
@@ -942,6 +920,13 @@
       </div>
     </footer>
 
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
     
 
     
@@ -1069,6 +1054,46 @@
   
   
 
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      document.getElementById(all[i].inputID + '-Frame').parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
   
 
 
