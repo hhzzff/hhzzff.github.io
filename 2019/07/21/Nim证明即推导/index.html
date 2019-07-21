@@ -128,14 +128,18 @@
 
 
 
-  <meta property="og:type" content="article">
-<meta property="og:title" content="【置顶】博客说明">
-<meta property="og:url" content="http://yoursite.com/2019/03/23/[置顶]博客说明/index.html">
+  <meta name="description" content="$Nim$游戏:$N$堆石子，每堆$a[i]$个石子，$Alice$与$Bob$轮流行动，$Alice$先行动，操作规则如下1、两方轮流操作2、每次可取走任意一堆的任意数量石子，不能取成负数3、无法行动的一方为输 定义先手必胜局面，N局面，表示当前局面为先手必胜(即面对该局面的玩家一定有获胜的策略)定义先手必败局面，P局面，表示当前局面为先手必败(即面对该局面的玩家一定没有机会获胜)易得到${\c">
+<meta name="keywords" content="证明">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nim证明即推导">
+<meta property="og:url" content="http://yoursite.com/2019/07/21/Nim证明即推导/index.html">
 <meta property="og:site_name" content="_____hzf_____">
+<meta property="og:description" content="$Nim$游戏:$N$堆石子，每堆$a[i]$个石子，$Alice$与$Bob$轮流行动，$Alice$先行动，操作规则如下1、两方轮流操作2、每次可取走任意一堆的任意数量石子，不能取成负数3、无法行动的一方为输 定义先手必胜局面，N局面，表示当前局面为先手必胜(即面对该局面的玩家一定有获胜的策略)定义先手必败局面，P局面，表示当前局面为先手必败(即面对该局面的玩家一定没有机会获胜)易得到${\c">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-23T15:49:59.621Z">
+<meta property="og:updated_time" content="2019-07-21T05:52:06.117Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【置顶】博客说明">
+<meta name="twitter:title" content="Nim证明即推导">
+<meta name="twitter:description" content="$Nim$游戏:$N$堆石子，每堆$a[i]$个石子，$Alice$与$Bob$轮流行动，$Alice$先行动，操作规则如下1、两方轮流操作2、每次可取走任意一堆的任意数量石子，不能取成负数3、无法行动的一方为输 定义先手必胜局面，N局面，表示当前局面为先手必胜(即面对该局面的玩家一定有获胜的策略)定义先手必败局面，P局面，表示当前局面为先手必败(即面对该局面的玩家一定没有机会获胜)易得到${\c">
 
 
 
@@ -143,7 +147,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/03/23/[置顶]博客说明/">
+  <link rel="canonical" href="http://yoursite.com/2019/07/21/Nim证明即推导/">
 
 
 
@@ -153,7 +157,7 @@
   };
 </script>
 
-  <title>【置顶】博客说明 | _____hzf_____</title>
+  <title>Nim证明即推导 | _____hzf_____</title>
   
 
 
@@ -441,7 +445,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/23/[置顶]博客说明/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/21/Nim证明即推导/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="_____hzf_____">
@@ -458,7 +462,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">【置顶】博客说明
+          <h1 class="post-title" itemprop="name headline">Nim证明即推导
 
               
             
@@ -484,7 +488,7 @@
                 
               
 
-              <time title="创建时间：2019-03-23 00:00:00 / 修改时间：23:49:59" itemprop="dateCreated datePublished" datetime="2019-03-23T00:00:00+08:00">2019-03-23</time>
+              <time title="创建时间：2019-07-21 00:00:00 / 修改时间：13:52:06" itemprop="dateCreated datePublished" datetime="2019-07-21T00:00:00+08:00">2019-07-21</time>
             
 
             
@@ -531,7 +535,16 @@
       
 
       
-        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=3932159&auto=0&height=66"></iframe>
+        <p>$Nim$游戏:<br>$N$堆石子，每堆$a[i]$个石子，$Alice$与$Bob$轮流行动，$Alice$先行动，操作规则如下<br>1、两方轮流操作<br>2、每次可取走任意一堆的任意数量石子，不能取成负数<br>3、无法行动的一方为输</p>
+<p>定义先手必胜局面，N局面，表示当前局面为先手必胜(即面对该局面的玩家一定有获胜的策略)<br>定义先手必败局面，P局面，表示当前局面为先手必败(即面对该局面的玩家一定没有机会获胜)<br>易得到<br>${\color{Red} {1、所有终止局面一定为P局面}}$<br>${\color{Red} {2、可以到达P局面的局面为N面}}$<br>${\color{Red} {3、所有操作都将导致N局面的局面为P局面}}$<br>所以，博弈论的胜负决策可以按一下步骤确定<br>1、标记所有终止状态为P状态<br>2、寻找所有能到达P状态的点，标记为N状态<br>3、寻找所有子状态都为N状态的点，标为P状态。如果没有，则退出<br>但是，显然按上面这种算法会狂T不止，且码量巨大，所以，我们引进一个新函数<br>定义$mex(x)$，$x$为自变量，表示一个集合，$mex(x)$定义为集合中未出现过的最小自然数<br>定义$sg(x)$，令$y$为$x$的子状态集合，$z$为的某一元素$y$，则$sg(x)=mex(sg(z))$<br>又可以得到<br>${\color{Red} {sg(所有终止局面)=0(没有子状态)}}$<br>${\color{Red} {sg(可达终止局面的状态)\ne0}}$<br>${\color{Red} {sg(子状态的sg值均不为0的状态)=0}}$<br>上面三个式子都很显然<br>然后，我们就发现了一个类似的规则<br>当$sg=0$时其状态为P状态<br>当$sg\ne0$时其状态为N状态(对比红字)</p>
+<p>如何判断多堆石子时的胜负情况？<br>首先，很显然，<br>当局面为 $\begin{matrix}2n\\\overbrace{ k+k+\cdots+k }\end{matrix}$ 时，先手必输<br>设$N$堆石子，每堆数量为$a_{i}$<br>将每个$a_{i}$转化为二进值，并将前导零补全<br>当$a_{i}=a_{j}=k(1\leq i&lt;j\leq n)$时<br>所有$a_{i}$转化为二进值都是相同的<br>例如，$k=22$时<br>$10110$<br>$10110$<br>每次先手的操作，都可以看做在其中一个$k$中，将一些0变为1,1变为0<br>例如把k取成17<br>$10{\color{Red} {001}}$<br>$10110$<br>此时对手也可以采取相同操作，将下面的也取成17<br>$10{\color{Red} {001}}$<br>$10{\color{Red} {001}}$<br>上面一点大家都懂，只是一个引入</p>
+<p>当存在$a_{i}\ne a_{j}$时，如何操作？<br>拿3、5、6为例<br>$011$<br>$101$<br>$110$<br>观察发现，每一纵列都有偶数个1，这意味着<br><strong>当一方取走任意一个1时，另一方都有相同的策略取走另一个1，使其保持纵列仍然为偶数个1</strong><br><strong>当一方将任意一个0改变为1时，另一方都有相同的策略取走一个1(注意，不是补0)，使其保持纵列仍然为偶数个1</strong><br>这跟上面讲到过的策略一样，正确性显然<br>所以，我们得出这么一个结论，当每一列的1的个数均为偶数时，先手必败，反之先手必胜<br>再简化一点，当$a_{1}\otimes a_{2}\otimes a_{3}\otimes\cdots\otimes a_{n}=0$时($\otimes$表示异或)，先手必败，反之先手必胜<br>再推广，可得一个平等组合游戏中，该游戏的$sg$值等于其所有子游戏的$sg$值的异或和</p>
+<p>胜负判断知道了，如何得到必胜策略(如果存在的话)<br>设$a_{1}\otimes a_{2}\otimes a_{3}\otimes\cdots\otimes a_{n}=k(k\ne0)$<br>因为</p>
+<script type="math/tex; mode=display">a_{1}\otimes a_{2}\otimes a_{3}\otimes\cdots\otimes a_{n}=k(k\ne0)</script><p>很显然</p>
+<script type="math/tex; mode=display">a_{1}\otimes a_{2}\otimes a_{3}\otimes\cdots\otimes a_{n}\otimes k=k\otimes k=0</script><p>且</p>
+<script type="math/tex; mode=display">k\leq max(a_{1},a_{2},a_{3},\cdots,a_{n})</script><p>设k的二进值最高位为第x位，则在$a_{1}\sim a_{n}$中，至少存在一个$a_{i}$，二进值第x位也为1<br>所以</p>
+<script type="math/tex; mode=display">a_{i}\otimes k<a_{i}</script><script type="math/tex; mode=display">a_{1}\otimes a_{2}\otimes a_{3}\otimes\cdots\otimes a_{i}\otimes k\otimes\cdots\otimes a_{n}=0(k\ne0)</script><p>因为$a_{i}\otimes k&lt;a_{i}$，所以存在$a_{i}$，将其取成$a_{i}\otimes k$即可</p>
+
       
     </div>
 
@@ -552,6 +565,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/证明/" rel="tag"># 证明</a>
+          
+        </div>
+      
 
       
       
@@ -561,8 +580,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/23/USACO13NOV 没有找零No Change 题解/" rel="next" title="USACO13NOV 没有找零No Change 题解">
-                <i class="fa fa-chevron-left"></i> USACO13NOV 没有找零No Change 题解
+              <a href="/2019/04/14/DFT&IDFT学习笔记/" rel="next" title="DFT&IDFT学习笔记">
+                <i class="fa fa-chevron-left"></i> DFT&IDFT学习笔记
               </a>
             
           </div>
@@ -570,10 +589,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/23/浅谈KMP字符串匹配算法/" rel="prev" title="浅谈KMP字符串匹配算法">
-                浅谈KMP字符串匹配算法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
